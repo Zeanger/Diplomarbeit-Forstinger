@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  font-family: Verdana;
+  font-size: 3vh;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}

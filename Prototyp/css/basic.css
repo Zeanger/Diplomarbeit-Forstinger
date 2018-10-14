@@ -1,0 +1,383 @@
+/* Menu */
+/* START */
+.menu {
+  position: fixed;
+  overflow: auto;
+  left: 75%;
+  top: 8.2%;
+
+  width: 25%;
+  height: 91.8%;
+
+  background: linear-gradient(to bottom, rgb(239, 208, 0), rgb(239, 219, 96));
+}
+
+.menuSection {
+ display: block;
+ width: 90%;
+ height: 40vh;
+ margin: auto;
+ margin-bottom: 2vh;
+
+ background: rgb(255, 255, 255);
+ background: linear-gradient(to right, rgb(200, 200, 200), rgb(255, 255, 255) 5%, white 6%, white 94%, rgb(255, 255, 255) 95%, rgb(200, 200, 200) 100%);
+
+ box-shadow: 0 0 1.5vh;
+
+ border-radius: 1.5vh;
+}
+
+.menuSection:first-child {
+  margin-top: 4vh;
+}
+
+.menuSectionGlobal {
+ display: block;
+ width: 90%;
+ height: 50vh;
+ margin: auto;
+ margin-bottom: 2vh;
+
+ background: rgb(255, 255, 255);
+ background: linear-gradient(to right, rgb(200, 200, 200), rgb(255, 255, 255) 5%, white 6%, white 94%, rgb(255, 255, 255) 95%, rgb(200, 200, 200) 100%);
+
+ box-shadow: 0 0 1.5vh;
+
+ border-radius: 1.5vh;
+}
+
+.menuSection:first-child {
+  margin-top: 4vh;
+}
+
+.menuHeader {
+  overflow: hidden;
+  height: 3vh;
+
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  margin-top: 1.5vh;
+
+  border-top-left-radius: 1.5vh;
+  border-top-right-radius: 1.5vh;
+  border-bottom: 0.4vh solid rgb(100, 100, 100);
+
+  text-align: center;
+  font-size: 2.5vh;
+  font-weight: bold;
+  cursor: pointer;
+
+  background: linear-gradient(to right, rgb(200, 200, 200), rgba(255, 255, 255, 0) 5%, transparent 6%, transparent 94%, rgba(255, 255, 255, 0) 95%, rgb(200, 200, 200) 100%),
+              linear-gradient(to bottom, rgb(200, 200, 200), rgb(255, 255, 255) 20%, transparent 21%, transparent 100%);
+  background-color: rgb(255, 255, 255);
+
+  transition-property: border-top;
+  transition-duration: 0.1s;
+}
+
+.menuHeader:hover {
+  border-top: 0.5vh solid rgba(234, 79, 162, 229);
+  padding-top: 1vh;
+
+  transition-property: border-top, padding-top;
+  transition-duration: 0.1s;
+}
+
+.menuContent {
+  position: relative;
+
+  width: 90%;
+  height: 30.7vh;
+  margin: auto;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 0.5vh;
+  padding-right: 0.5vh;
+
+  text-align: left;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.menuContentGlobal {
+  position: relative;
+
+  width: 90%;
+  height: 35.7vh;
+  margin: auto;
+  padding-top: 1.5vh;
+  padding-bottom: 1.5vh;
+  padding-left: 0.5vh;
+  padding-right: 0.5vh;
+
+  text-align: left;
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+.menuCheckbox {
+
+}
+
+.menuDropdown {
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+}
+
+.menuDropdown Select {
+  width: 70%;
+}
+
+.addButton {
+  display: inline-block;
+  float: right;
+  text-align: center;
+  overflow: hidden;
+
+  width: 20%;
+
+  padding: 0.2vh;
+  font-size: 1.7vh;
+
+  border: 0.2vh solid rgb(80, 80, 80);
+  border-radius: 0.5vh;
+
+  background: linear-gradient(to bottom, rgba(200, 200, 200), rgba(255, 255, 255));
+
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+}
+
+.addButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.2vh 0.1vh rgb(75, 75, 75);
+}
+
+.removeButton {
+  display: inline-block;
+  float: right;
+  text-align: center;
+  overflow: hidden;
+
+  width: 20%;
+
+  padding: 0.2vh;
+  font-size: 1.7vh;
+
+  border: 0.2vh solid rgb(80, 80, 80);
+  border-radius: 0.5vh;
+
+  background: linear-gradient(to bottom, rgba(200, 200, 200), rgba(255, 255, 255));
+
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+}
+
+.removeButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.2vh 0.1vh rgb(75, 75, 75);
+}
+
+.datePicker {
+  display: inline;
+}
+
+.datePicker input{
+  width: 50%;
+}
+
+.datePickerText {
+  display: inline;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  margin-left: 1vh;
+}
+
+.applySettings {
+  position: absolute;
+  bottom: 2vh;
+  left: 1vh;
+  width: 40%;
+
+  display: inline-block;
+  float: right;
+  text-align: center;
+  overflow: hidden;
+
+  padding: 0.2vh;
+  font-size: 1.7vh;
+
+  border: 0.2vh solid rgb(80, 80, 80);
+  border-radius: 0.5vh;
+
+  background: linear-gradient(to bottom, rgba(200, 200, 200), rgba(255, 255, 255));
+
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+}
+
+.applySettings:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.2vh 0.1vh rgb(75, 75, 75);
+}
+
+.menuDelete {
+  position: absolute;
+  bottom: 2vh;
+  right: 1vh;
+  width: 40%;
+
+  display: inline-block;
+  float: right;
+  text-align: center;
+  overflow: hidden;
+
+  padding: 0.2vh;
+  font-size: 1.7vh;
+
+  border: 0.2vh solid rgb(80, 80, 80);
+  border-radius: 0.5vh;
+
+  background: linear-gradient(to bottom, rgba(200, 200, 200), rgba(255, 255, 255));
+
+  transition-property: box-shadow;
+  transition-duration: 0.3s;
+}
+
+.menuDelete:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.2vh 0.1vh rgb(75, 75, 75);
+}
+
+.addGraphButton {
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 1.5vh;
+  margin-bottom: 2.5vh;
+  padding: 1vh 1vh;
+  overflow: hidden;
+
+  border: 0.4vh solid rgb(51, 51, 51);
+  border-radius: 1vh;
+  background: linear-gradient(to bottom, rgb(255, 235, 112), rgb(255, 222, 16));
+
+  font-size: 2.5vh;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.addGraphButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1vh 0.3vh rgb(75, 75, 75);
+}
+/* END */
+
+/* Main */
+/* START */
+.main {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 8.2%;
+
+  width: 75%;
+  height: 91.8%;
+
+  background-color: rgb(85, 85, 85);
+}
+
+.mainSection {
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 1vh;
+
+  padding-bottom: 2vh;
+
+  border-radius: 2vh;
+
+  background: linear-gradient(to right, rgb(200, 200, 200), rgba(255, 255, 255, 0) 1%, transparent 99%, rgba(255, 255, 255, 0) 99%, rgb(200, 200, 200) 100%),
+              linear-gradient(to bottom, rgb(200, 200, 200), rgb(255, 255, 255) 3%, transparent 3%, rgba(255, 255, 255, 0) 97%, rgb(200, 200, 200) 100%),
+              rgb(255, 255, 255);
+
+}
+
+.mainSection:first-child {
+  margin-top: 2vh;
+}
+
+.mainSection:last-child {
+  margin-bottom: 2vh;
+}
+
+.mainHeader {
+  text-align: center;
+  color: rgb(51, 51, 51);
+  font-size: 4vh;
+  font-weight: bold;
+
+  padding: 2vh 0;
+}
+
+.mainContent {
+
+}
+
+.graph {
+  width: 90%;
+  display: inline-block;
+
+  margin-right: 0.25%;
+  margin-left: 0.75%;
+
+  background-color: rgb(255, 255, 255);
+}
+.graph canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.graphButtonHolder {
+  width: 8%;
+
+  margin-right: 0.75%;
+  margin-left: 0.25%;
+  margin-top: 3%;
+
+  display: inline-block;
+  float: right;
+
+  background-color: rgb(255, 255, 255);
+}
+
+.graphButton {
+  width: 60%;
+  height: 50%;
+  margin-bottom: 0.5vh;
+
+  display: inline-flex;
+
+  border: 0.3vh solid rgb(51, 51, 51);
+  border-radius: 1vh;
+
+  background: linear-gradient(to bottom, rgb(200, 200, 200), rgb(255, 255, 255));
+
+  transition-property: box-shadow;
+  transition-duration: 0.2s;
+}
+
+.graphButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.4vh 0.2vh rgb(75, 75, 75);
+}
+
+.graphButton img {
+  width: 100%;
+  height: 100%;
+}
+/* END */
