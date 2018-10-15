@@ -1,0 +1,20 @@
+/* Logo */
+/* START */
+.logo {
+  position: fixed;
+  left: 75%;
+  top: 0%;
+
+  width: 25%;
+  height: 8.2%;
+
+  background: linear-gradient(to bottom, rgb(255, 235, 112), rgb(255, 222, 16));
+}
+
+.logo img {
+  width: auto;
+  height: 100%;
+  display: block;
+  margin: auto auto;
+}
+/* END */

@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Dashboard</title>
+    <title>Graphs</title>
 
-    <!-- JQuery essentials -->
-    <script src="../js/jquery.js"></script>
-		<script src="../js/Chart.bundle.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/general.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/logo.css">
+    <link rel="stylesheet" href="../css/graphMain.css">
+    <link rel="stylesheet" href="../css/graphMenu.css">
 
-    <!-- Custom -->
-    <link rel="stylesheet" href="../css/navigationBar.css">
-    <link rel="stylesheet" href="../css/basic.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <script src="../js/menu.js"></script>
+    <!-- JQuery & Chart.js -->
+    <script src="../resources/js/jquery.js"></script>
+    <script src="../resources/js/Chart.bundle.js"></script>
+
+    <!-- JS -->
+    <script src="../js/graphSetup.js"></script>
+    <script src="../js/graphMenu.js"></script>
+    <script src="../js/graphPresets.js"></script>
+    <script src="../js/graphEventListener.js"></script>
+    <script src="../js/graphFunctions.js"></script>
+    <script src="../js/loadData.js"></script>
     <script src="../js/utilities.js"></script>
-    <script src="../js/getData.js"></script>
-    <script src="../js/eventListener.js"></script>
-    <script src="../js/setup.js"></script>
 
   </head>
   <body>
+
     <div class="nav">
       <div><a href="dashboard.html">Guide</a></div>
       <div><a href="graphs.html">Graphs</a></div>
@@ -26,11 +33,12 @@
       <div><a href="settings.html">Settings</a></div>
     </div>
     <div class="logo">
-      <img src="../img/FORSTINGER_LOGO.png" alt="Forstinger">
+      <img src="../resources/img/FORSTINGER_LOGO.png" alt="Forstinger">
     </div>
     <div class="menu">
       <div class="addGraphButton">Add Graph</div>
     </div>
     <div class="main"></div>
+
   </body>
 </html>
