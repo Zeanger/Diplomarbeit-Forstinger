@@ -1,0 +1,43 @@
+graphPresets
+  createPresetOfCurrent
+  usePreset
+
+graphSetup
+  createGlobal
+  loadAllPresets
+  loadSettings
+
+graphFunctions
+  updateGraph
+  pushGraphData
+  pushBaseLine
+  updateAllGraphs
+  updateAllGraphsLoop
+  updateTillNow
+  updateAllVisuals
+  createGraph
+
+eventListener
+	//Global
+	interpolationChangedGlobal
+	keepUpdatedChangedGlobal
+	spanChangedGlobal
+	endDateChangedGlobal
+	startDateChangedGlobal
+
+	//Individual Graph
+	interpolationChanged
+	keepUpdatedChanged
+	spanChanged
+	endDateChanged
+	startDateChanged
+
+  configurePress
+  addGraph
+  removeGraph
+
+utilities
+	twoDigits
+	toMysqlFormat
+	toDatepickerFormat
+	customLog
