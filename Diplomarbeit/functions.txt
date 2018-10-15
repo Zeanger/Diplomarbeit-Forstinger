@@ -1,11 +1,11 @@
 graphPresets
-  createPresetOfCurrent
-  usePreset
+  createPresetOfCurrent //Done
+  usePreset //Done
 
 graphSetup
-  createGlobal
-  loadAllPresets
-  loadSettings
+  createGlobal //Done
+  loadAllPresets //Done
+  loadSettings //Done
 
 graphFunctions
   updateGraph
@@ -15,7 +15,7 @@ graphFunctions
   updateAllGraphsLoop
   updateTillNow
   updateAllVisuals
-  createGraph
+  createGraph //Done?
 
 eventListener
 	//Global
@@ -37,7 +37,7 @@ eventListener
   removeGraph
 
 utilities
-	twoDigits
-	toMysqlFormat
-	toDatepickerFormat
-	customLog
+	twoDigits //Done
+	toMysqlFormat //Done
+	toDatepickerFormat //Done
+	customLog //Done
