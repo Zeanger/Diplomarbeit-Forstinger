@@ -20,7 +20,7 @@ function createGraph(count) {
 													'<canvas id="dateGraph_'+count+'"></canvas>'+
 												'</div>'+
 												'<div class="graphButtonHolder">'+
-													'<div class="graphButton" onclick="configurePress(this)">'+
+													'<div id="configureButton_'+count+'" class="graphButton" onclick="configurePress(this)">'+
 														'<img src="../resources/img/configure.png">'+
 													'</div>'+
 													'<div class="graphButton">'+
@@ -91,7 +91,7 @@ function createGraph(count) {
 	newGraph.keepUpdated = false;
 
 	activeGraphs.push(newGraph);
-  MenuOptions.push(tempMenuOption);
+  menuOptions.push(tempMenuOption);
 
 	var activeGraphsId = activeGraphs.length-1;
 

@@ -32,7 +32,7 @@ eventListener
 	endDateChanged
 	startDateChanged
 
-  configurePress
+  configurePress //Done
   addGraph
   removeGraph
 
