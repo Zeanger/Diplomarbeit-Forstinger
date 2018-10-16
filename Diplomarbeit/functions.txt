@@ -1,11 +1,11 @@
 graphPresets
   createPresetOfCurrent //Done
-  usePreset //Done
+  usePreset             //Done
 
 graphSetup
-  createGlobal //Done
-  loadAllPresets //Done
-  loadSettings //Done
+  createGlobal    //Done
+  loadAllPresets  //Done
+  loadSettings    //Done
 
 graphFunctions
   updateGraph
@@ -14,8 +14,8 @@ graphFunctions
   updateAllGraphs
   updateAllGraphsLoop
   updateTillNow
-  updateAllVisuals
-  createGraph //Done?
+  updateAllVisuals  //Working on it
+  createGraph           //Done
 
 eventListener
 	//Global
@@ -23,21 +23,21 @@ eventListener
 	keepUpdatedChangedGlobal
 	spanChangedGlobal
 	endDateChangedGlobal
-	startDateChangedGlobal
+	startDateChangedGlobal       //Done
 
 	//Individual Graph
-	interpolationChanged
-	keepUpdatedChanged
-	spanChanged
-	endDateChanged
-	startDateChanged
+	interpolationChanged //Done
+	keepUpdatedChanged   //Done
+	spanChanged          //Done
+	endDateChanged       //Done
+	startDateChanged     //Done
 
-  configurePress //Done
-  addGraph
-  removeGraph
+  configurePress  //Done
+  addGraph        //Done
+  removeGraph     //Done
 
 utilities
-	twoDigits //Done
-	toMysqlFormat //Done
+	twoDigits          //Done
+	toMysqlFormat      //Done
 	toDatepickerFormat //Done
-	customLog //Done
+	customLog          //Done

@@ -34,11 +34,11 @@ function createGraph(count) {
 											'<div class="menuContent">'+
 												'<div class="menuDropdown">'+
 													dropdown0+
-													'<div class="addButton" onclick="addGraph(this)">+</div>'+
+													'<div id="addButton_'+count+'" class="addButton" onclick="addGraph(this)">+</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
 													dropdown1+
-													'<div class="removeButton" onclick="removeGraph(this)">-</div>'+
+													'<div id="removeButton_'+count+'" class="removeButton" onclick="removeGraph(this)">-</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
 													'<div class="datePicker"><input id="startDate_'+count+'" type="date" onchange="startDateChanged(this)"></div>'+
@@ -97,5 +97,4 @@ function createGraph(count) {
 
 	var ctx = document.getElementById("dateGraph_"+count).getContext("2d");
 	activeGraphs[activeGraphsId].canvas = new Chart(ctx, JSON.parse(JSON.stringify(graphConfigTemplate)));
-
 }

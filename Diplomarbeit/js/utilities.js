@@ -34,6 +34,7 @@ function customLog(name) {
 	if(name == "allPresets") console.log(allPresets);
 	if(name == "keepUpdatedInterval") console.log(keepUpdatedInterval);
 	if(name == "stationNames") console.log(stationNames);
+  if(name == "menuOptions") console.log(menuOptions);
 
 	return null;
 }
