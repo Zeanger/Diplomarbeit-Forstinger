@@ -1,0 +1,14 @@
+/* Main */
+/* START */
+.main {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 8.2%;
+
+  width: 100%;
+  height: 91.8%;
+
+  background-color: rgb(85, 85, 85);
+}
+/* END */
