@@ -49,7 +49,7 @@ const datasetsColour = {
 var activeGraphs = [];
 var menuOptions = [];
 var keepUpdatedInterval = false;
-var Presets = [];
+var presets = [];
 var settings = {};
 var count = 0;
 var freeId = []
@@ -114,28 +114,6 @@ $(function() {
   createGlobal();
   closeMenuSectionGlobal();
   closeAllMenuSections();
-
-  //Add Graph click
-  $(".addGraphButton").click(function() {
-    if(freeId.length > 0) {
-      var smallestFreeId = freeId[0];
-      var smallestFreeIdIndex = 0;
-
-      for(var i = 0; i < freeId.length; i++) {
-        if(Number(freeId[i]) < Number(smallestFreeId)) {
-          smallestFreeId = freeId[i];
-          smallestFreeIdIndex = i;
-        }
-      }
-
-      freeId.splice(smallestFreeIdIndex,1);
-      createGraph(Number(smallestFreeId));
-    }
-    else {
-      createGraph(count);
-      count++;
-    }
-  });
 });
 
 //Creates the global menu
@@ -190,12 +168,12 @@ function createGlobal() {
 				preset_object.data[0].time.end = new Date(preset_object.data[0].time.end);
 			}
 
-			Presets.push(preset_object);
+			presets.push(preset_object);
 		}
 
 		var options = "";
-		for(var i = 0; i < Presets.length; i++) {
-			options += '<option value="'+Presets[i].name+'">'+Presets[i].name+'</optioin>';
+		for(var i = 0; i < presets.length; i++) {
+			options += '<option value="'+presets[i].name+'">'+presets[i].name+'</optioin>';
 		}
 
 		$("#presetSelection").append(options);

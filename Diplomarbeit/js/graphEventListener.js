@@ -190,7 +190,10 @@ function interpolationChanged(element) {
 //Changes time.start of all Graphs
 //Done!
 function startDateChangedGlobal(element) {
-	var start = new Date($(element).val());
+	var start = null;
+	if($(element).val()) {
+		start = new Date($(element).val());
+	}
 	for(var i = 0; i < menuOptions.length; i++) {
 		menuOptions[i].time.start = start;
 	}
@@ -223,10 +226,13 @@ function interpolationChangedGlobal(element) {
 //Changes span of all Graphs
 //Done!
 function spanChangedGlobal(element) {
-	var span = $(element).val();
-	if(span < 0) {
-		span = 0;
-		$(element).val(span);
+	var span = null;
+	if($(element).val()) {
+		span = $(element).val();
+		if(span < 0) {
+			span = 0;
+			$(element).val(span);
+		}
 	}
 	for(var i = 0; i < menuOptions.length; i++) {
 		menuOptions[i].time.span = span;
@@ -238,9 +244,35 @@ function spanChangedGlobal(element) {
 //Changes time.end of all Graphs
 //Done!
 function endDateChangedGlobal(element) {
-	var end = new Date($(element).val());
+	var end = null;
+	if($(element).val()) {
+		end = new Date($(element).val());
+	}
 	for(var i = 0; i < menuOptions.length; i++) {
 		menuOptions[i].time.end = end;
 	}
 	updateAllVisuals();
+}
+
+
+function addSection() {
+	//Add Graph click
+  if(freeId.length > 0) {
+    var smallestFreeId = freeId[0];
+    var smallestFreeIdIndex = 0;
+
+    for(var i = 0; i < freeId.length; i++) {
+      if(Number(freeId[i]) < Number(smallestFreeId)) {
+        smallestFreeId = freeId[i];
+        smallestFreeIdIndex = i;
+      }
+    }
+
+    freeId.splice(smallestFreeIdIndex,1);
+    createGraph(Number(smallestFreeId));
+  }
+  else {
+    createGraph(count);
+    count++;
+  }
 }

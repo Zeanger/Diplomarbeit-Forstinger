@@ -78,7 +78,7 @@ function createPresetOfCurrent() {
 
 					var options = "";
 					for(var i = 0; i < Presets.length; i++) {
-						options += '<option value="'+Presets[i].name+'">'+Presets[i].name+'</optioin>';
+						options += '<option value="'+presets[i].name+'">'+presets[i].name+'</optioin>';
 					}
 
 					$("#presetSelection").append(options);
@@ -96,8 +96,8 @@ function usePreset(element) {
 	var index = null;
 
 	//Get index
-	for(var i = 0; i < Presets.length; i++) {
-		if(Presets[i].name == presetName) {
+	for(var i = 0; i < presets.length; i++) {
+		if(presets[i].name == presetName) {
 			index = i;
 			break;
 		}
@@ -109,6 +109,7 @@ function usePreset(element) {
 	count = 0;
 
 	activeGraphs = [];
+	menuOptions = [];
 	freeId = [];
 	$(".mainSection").remove();
 	$(".menuSection").remove();
@@ -116,24 +117,24 @@ function usePreset(element) {
 	//create new sections + main
 	//create activeGraphs from presets
 	//update Graph with section->button->element (find with count id)
-	for(var i = 0; i < Presets[index].data.length; i++) {
+	for(var i = 0; i < presets[index].data.length; i++) {
 		//Create Sections, watch out for createPresetOfCurrent
-		createSection(i);
+		createGraph(i);
 		count++;
 	}
-	for(var i = 0; i < Presets[index].data.length; i++) {
+	for(var i = 0; i < presets[index].data.length; i++) {
 
 		//Apply preset and Push new ActiveGraphs
-		activeGraphs[i].time = Presets[index].data[i].time;
-		activeGraphs[i].graphs = Presets[index].data[i].graphs;
-		activeGraphs[i].interpolation = Presets[index].data[i].interpolation;
-		activeGraphs[i].keepUpdated = Presets[index].data[i].keepUpdated;
+		activeGraphs[i].time = presets[index].data[i].time;
+		activeGraphs[i].graphs = presets[index].data[i].graphs;
+		activeGraphs[i].interpolation = presets[index].data[i].interpolation;
+		activeGraphs[i].keepUpdated = presets[index].data[i].keepUpdated;
 
     //Apply preset to menuOptions
-    menuOptions[i].time = Presets[index].data[i].time;
-		menuOptions[i].graphs = Presets[index].data[i].graphs;
-		menuOptions[i].interpolation = Presets[index].data[i].interpolation;
-		menuOptions[i].keepUpdated = Presets[index].data[i].keepUpdated;
+    menuOptions[i].time = presets[index].data[i].time;
+		menuOptions[i].graphs = presets[index].data[i].graphs;
+		menuOptions[i].interpolation = presets[index].data[i].interpolation;
+		menuOptions[i].keepUpdated = presets[index].data[i].keepUpdated;
 
 	}
 	updateAllGraphs();

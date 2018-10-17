@@ -11,7 +11,7 @@ graphFunctions
   updateGraph           //Done
   pushGraphData         //Done? did'nt change anything, looks fine tho
   pushBaseLine          //Done? same reasoning as above
-  updateAllGraphs
+  updateAllGraphs     
   updateAllGraphsLoop
   updateTillNow         //Done? just... above
   updateAllVisuals      //Done

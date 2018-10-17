@@ -93,10 +93,18 @@ function createGraph(count) {
 	activeGraphs.push(newGraph);
   menuOptions.push(tempMenuOption);
 
+	startDateChangedGlobal($("#startDateGlobal"));
+	endDateChangedGlobal($("#endDateGlobal"));
+	spanChangedGlobal($("#spanGlobal"));
+	interpolationChangedGlobal($("#interpolationGlobal"));
+	keepUpdatedChangedGlobal($("#keepUpdatedGlobal"));
+
 	var activeGraphsId = activeGraphs.length-1;
 
 	var ctx = document.getElementById("dateGraph_"+count).getContext("2d");
 	activeGraphs[activeGraphsId].canvas = new Chart(ctx, JSON.parse(JSON.stringify(graphConfigTemplate)));
+
+	console.log(activeGraphs);
 }
 
 
@@ -162,12 +170,12 @@ function updateGraph(element) {
 	var anyKeepUpdated = false;
 
 	for(var i = 0; i < menuOptions.length; i++) {
-		if(menuOptions[i].id = elementId) {
+		if(menuOptions[i].id == elementId) {
 			menuOptionsId = elementId;
 		}
 	}
 	for(var i = 0; i < activeGraphs.length; i++) {
-		if(activeGraphs[i].id = elementId) {
+		if(activeGraphs[i].id == elementId) {
 			activeGraphsId = elementId;
 		}
 	}
@@ -213,6 +221,7 @@ function updateGraph(element) {
 	pushBaseLine(activeGraphId);
 
 	for(var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
+		console.log("debug");
 		pushGraphData(activeGraphId, i)
 	}
 }
@@ -377,5 +386,33 @@ function updateTillNow() {
 				pushGraphData(activeGraphs[j].id, i)
 			}
 		}
+	}
+}
+
+
+//Updates all Graphs because chart.js is worse then my depression
+//Done!
+// var updateAllGraphsItterator;
+// var updateAllGraphsInterval = false;
+// function updateAllGraphs() {
+// 	updateAllGraphsItterator = 0;
+// 	clearInterval(updateAllGraphsInterval);
+// 	updateAllGraphsInterval = false;
+// 	updateAllGraphsInterval = setInterval(updateAllGraphsLoop, 200);
+// }
+// function updateAllGraphsLoop() {
+// 	if(activeGraphs.length > updateAllGraphsItterator) {
+// 		updateGraph($("#updateGraph_"+activeGraphs[updateAllGraphsItterator].id));
+// 	}
+// 	updateAllGraphsItterator++;
+// 	if(updateAllGraphsItterator > activeGraphs.length) {
+// 		clearInterval(updateAllGraphsInterval);
+// 		updateAllGraphsInterval = false;
+// 	}
+// }
+
+function updateAllGraphs() {
+	for(var i = 0; i < activeGraphs.length; i++) {
+		updateGraph($("#updateGraph_"+activeGraphs[i].id));
 	}
 }

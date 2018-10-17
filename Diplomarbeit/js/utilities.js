@@ -31,7 +31,7 @@ function toDatepickerFormat(date) {
 function customLog(name) {
 	if(name == "activeGraphs") console.log(activeGraphs);
 	if(name == "freeId") console.log(freeId);
-	if(name == "allPresets") console.log(allPresets);
+	if(name == "presets") console.log(presets);
 	if(name == "keepUpdatedInterval") console.log(keepUpdatedInterval);
 	if(name == "stationNames") console.log(stationNames);
   if(name == "menuOptions") console.log(menuOptions);

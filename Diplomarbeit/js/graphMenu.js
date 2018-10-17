@@ -61,6 +61,11 @@ function deleteMenuSection(element) {
         freeId.push(mainSectionId);
       }
   }
+  for(var i = 0; i < menuOptions.length; i++) {
+    if(menuOptions[i].id == mainSectionId) {
+      menuOptions.splice(i,1);
+    }
+  }
 
   $("#mainSection_"+mainSectionId).remove();
   $("#menuSection_"+mainSectionId).remove();
