@@ -196,3 +196,51 @@ function startDateChangedGlobal(element) {
 	}
 	updateAllVisuals();
 }
+
+
+//Changes keepUpdated of all Graphs
+//Done!
+function keepUpdatedChangedGlobal(element) {
+	var isChecked = $(element)[0].checked;
+	for(var i = 0; i < menuOptions.length; i++) {
+		menuOptions[i].keepUpdated = isChecked;
+	}
+	updateAllVisuals();
+}
+
+
+//Changes Interpolation of all Graphs
+//Done!
+function interpolationChangedGlobal(element) {
+	var isChecked = $(element)[0].checked;
+	for(var i = 0; i < menuOptions.length; i++) {
+		menuOptions[i].interpolation = isChecked;
+	}
+	updateAllVisuals();
+}
+
+
+//Changes span of all Graphs
+//Done!
+function spanChangedGlobal(element) {
+	var span = $(element).val();
+	if(span < 0) {
+		span = 0;
+		$(element).val(span);
+	}
+	for(var i = 0; i < menuOptions.length; i++) {
+		menuOptions[i].time.span = span;
+	}
+	updateAllVisuals();
+}
+
+
+//Changes time.end of all Graphs
+//Done!
+function endDateChangedGlobal(element) {
+	var end = new Date($(element).val());
+	for(var i = 0; i < menuOptions.length; i++) {
+		menuOptions[i].time.end = end;
+	}
+	updateAllVisuals();
+}

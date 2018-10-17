@@ -52,7 +52,7 @@ function createPresetOfCurrent() {
 					console.log("Error while creating!");
 				}
 
-				loadAllPresets(function(json_presets){
+				loadPresets(function(json_presets){
 					//Delete current presets
 					Presets = [];
 					$("#presetSelection").find("Option").remove();

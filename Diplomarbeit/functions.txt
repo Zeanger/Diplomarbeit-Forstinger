@@ -8,21 +8,21 @@ graphSetup
   loadSettings    //Done
 
 graphFunctions
-  updateGraph
-  pushGraphData
-  pushBaseLine
+  updateGraph           //Done
+  pushGraphData         //Done? did'nt change anything, looks fine tho
+  pushBaseLine          //Done? same reasoning as above
   updateAllGraphs
   updateAllGraphsLoop
-  updateTillNow
-  updateAllVisuals  //Working on it
+  updateTillNow         //Done? just... above
+  updateAllVisuals      //Done
   createGraph           //Done
 
 eventListener
 	//Global
-	interpolationChangedGlobal
-	keepUpdatedChangedGlobal
-	spanChangedGlobal
-	endDateChangedGlobal
+	interpolationChangedGlobal   //Done
+	keepUpdatedChangedGlobal     //Done
+	spanChangedGlobal            //Done
+	endDateChangedGlobal         //Done
 	startDateChangedGlobal       //Done
 
 	//Individual Graph
