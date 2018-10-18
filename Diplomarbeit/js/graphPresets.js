@@ -78,7 +78,7 @@ function createPresetOfCurrent() {
 
 					var options = "";
 					for(var i = 0; i < Presets.length; i++) {
-						options += '<option value="'+presets[i].name+'">'+presets[i].name+'</optioin>';
+						options += '<option value="'+Presets[i].name+'">'+presets[i].name+'</optioin>';
 					}
 
 					$("#presetSelection").append(options);

@@ -21,6 +21,8 @@ $(function() {
 			presets.push(preset_object);
 		}
     console.log(presets);
+
+		createSettings();
 	});
 
 });
