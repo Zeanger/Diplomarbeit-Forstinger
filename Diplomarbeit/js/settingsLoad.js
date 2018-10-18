@@ -2,7 +2,6 @@ var presets = [];
 var settings = {};
 
 $(function() {
-	loadSettings();
   loadPresets(function(json_presets){
 		var json_presets_decoded = JSON.parse(json_presets);
 		for(var i = 0; i < json_presets_decoded.length; i++) {
@@ -22,9 +21,10 @@ $(function() {
 		}
     console.log(presets);
 
-		createSettings();
+		loadSettings(function() {
+			createSettings();
+		});
 	});
-
 });
 
 //loads all presets from the server per callback
@@ -43,7 +43,7 @@ function loadPresets(callback) {
 
 //Loads all settings from the server and stores them
 //Todo: Done!
-function loadSettings() {
+function loadSettings(callback) {
 	$.ajax({
 		url:"../php/loadSettings.php",
 		success:function(msg){
@@ -54,6 +54,9 @@ function loadSettings() {
 			}
 			settings.refreshRate = refreshRate;
 			console.log(settings);
+			if(typeof callback == "function") {
+				callback();
+			}
 		},
 	});
 }

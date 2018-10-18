@@ -13,9 +13,8 @@
 }
 
 .settings {
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 2%;
+  margin: 2%;
+  padding: 2%;
 
   font-size: 1.5vh;
 
@@ -23,12 +22,48 @@
 }
 
 .presets {
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 2%;
+  margin: 2%;
+  padding: 2%;
 
   font-size: 1.5vh;
 
+  background-color: rgb(0,0,255);
+}
+
+.graphSection {
+    margin-left: 2%;
+}
+
+.preference {
+  height: 10%;
   background-color: rgb(0,255,0);
+}
+
+.preferenceName {
+  display: inline-block;
+}
+
+.preferenceInput {
+  display: inline-block;
+}
+
+.preferenceButton {
+  display: inline-block;
+}
+
+.measurement {
+  display: inline-block;
+  margin-left: 2%;
+}
+.measurement:first-child {
+  margin-left: 4%
+}
+
+.preferenceSection {
+  display: inline-block;
+  margin-left: 2%;
+}
+.preferenceSection:first-child {
+  margin-left: 4%;
 }
 /* END */
