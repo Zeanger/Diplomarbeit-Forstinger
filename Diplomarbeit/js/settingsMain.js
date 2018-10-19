@@ -70,9 +70,11 @@ function createSettings() {
 	}
 
 	var mainSettings = '<div class="settings">' +
+												'<div>Preferences</div>' +
                         settingsHtml +
 										 '</div>' +
                      '<div class="presets">' +
+										 		'<div>Presets</div>' +
                         presetsHtml +
                      '</div>';
 
