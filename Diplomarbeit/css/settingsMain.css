@@ -30,25 +30,50 @@
   background-color: rgb(0,0,255);
 }
 
+.presetName {
+  margin-top: 1%;
+  display: inline-block;
+  margin-right: 2%;
+}
+
+.deletePresetButton {
+  display: inline-block;
+  margin-right: 2%;
+}
+
 .graphSection {
     margin-left: 2%;
+    margin-top: 1%;
+}
+
+.preferenceHeader {
+  font-weight: bold;
+}
+
+.presetHeader {
+  font-weight: bold;
 }
 
 .preference {
   height: 10%;
+  margin-top: 1%;
   background-color: rgb(0,255,0);
 }
 
 .preferenceName {
   display: inline-block;
+  margin-right: 2%;
 }
 
 .preferenceInput {
   display: inline-block;
+  margin-right: 2%;
 }
 
 .preferenceButton {
   display: inline-block;
+  cursor: pointer;
+  margin-right: 2%;
 }
 
 .measurement {
