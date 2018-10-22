@@ -127,6 +127,7 @@
   display: inline-block;
   cursor: pointer;
   margin-right: 2%;
+  width: 5%;
 
   border: 0.2vh solid rgb(51, 51, 51);
   border-radius: 0.5vh;

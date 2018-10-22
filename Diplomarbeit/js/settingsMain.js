@@ -59,8 +59,8 @@ function createSettings() {
 				presetsHtmlGraphs += '<div class="measurement">'+stationNames[presets[i].data[j].graphs[k]].displayName+'</div>';
 			}
 			presetsHtmlGraphs += '</div><table class="presetTable">';
-			presetsHtmlGraphs += '<tr><td>Interpolation:</td><td>'+presets[i].data[j].interpolation+'</td></tr>';
-			presetsHtmlGraphs += '<tr><td>Till now:</td><td>'+presets[i].data[j].keepUpdated+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Interpolation:</td><td>'+(presets[i].data[j].interpolation ? "Yes" : "No")+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Till now:</td><td>'+(presets[i].data[j].keepUpdated ? "Yes" : "No")+'</td></tr>';
 			presetsHtmlGraphs += '<tr><td>Start:</td><td>'+toDatepickerFormat(presets[i].data[j].time.start)+'</td></tr>';
 			presetsHtmlGraphs += '<tr><td>End:</td><td>'+toDatepickerFormat(presets[i].data[j].time.end)+'</td></tr>';
 			presetsHtmlGraphs += '<tr><td>Span:</td><td>'+(presets[i].data[j].time.span ? presets[i].data[j].time.span : 0)+' Minutes</td></tr>';
