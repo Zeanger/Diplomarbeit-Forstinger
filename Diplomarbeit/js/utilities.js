@@ -8,7 +8,8 @@ function twoDigits(d) {
 
 //Converts Js date type to Mysql date type
 //Done!
-function toMysqlFormat(date) {
+function toMysqlFormat(date2) {
+    var date = new Date(date2)
     return date.getFullYear()+"-"+twoDigits(1+date.getMonth())+"-"+twoDigits(date.getDate())+" "+twoDigits(date.getHours())+":"+twoDigits(date.getMinutes())+":"+twoDigits(date.getSeconds());
 }
 

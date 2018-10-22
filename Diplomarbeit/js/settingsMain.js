@@ -42,27 +42,35 @@ const stationNames = {
 	}
 };
 
+const settingNames = {
+	"refreshRate": "Refresh Rate",
+}
+
 function createSettings() {
 	var settingsHtml = '';
   var presetsHtml = '';
 
 	for(var i = 0; i < presets.length; i++) {
-		presetsHtml +=  '<div><div class="presetName">'+presets[i].name+'</div><div id="preset_'+i+'" class="deletePresetButton" onclick="deletePreset(this)">Delete</div>';
+		presetsHtml +=  '<div class="presetSection"><div class="presetName">'+presets[i].name+'</div>';
 		var presetsHtmlGraphs = "";
 		for(var j = 0; j < presets[i].data.length; j++) {
-			presetsHtmlGraphs += '<div class="graphSection">Graph '+(j+1)+'</div><div>';
+			presetsHtmlGraphs += '<div class="graphSection">Graph '+(j+1)+'<div>';
 			for(var k = 0; k < presets[i].data[j].graphs.length; k++) {
 				presetsHtmlGraphs += '<div class="measurement">'+stationNames[presets[i].data[j].graphs[k]].displayName+'</div>';
 			}
-			presetsHtmlGraphs += '</div>';
-			presetsHtmlGraphs += '<div><div class="preferenceSection">Interpolation:</div><div class="preferenceSection">'+presets[i].data[j].interpolation+'</div></div>';
-			presetsHtmlGraphs += '<div><div class="preferenceSection">Till now</div><div class="preferenceSection">'+presets[i].data[j].keepUpdated+'</div></div>';
+			presetsHtmlGraphs += '</div><table class="presetTable">';
+			presetsHtmlGraphs += '<tr><td>Interpolation:</td><td>'+presets[i].data[j].interpolation+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Till now:</td><td>'+presets[i].data[j].keepUpdated+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Start:</td><td>'+toDatepickerFormat(presets[i].data[j].time.start)+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>End:</td><td>'+toDatepickerFormat(presets[i].data[j].time.end)+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Span:</td><td>'+(presets[i].data[j].time.span ? presets[i].data[j].time.span : 0)+' Minutes</td></tr>';
+			presetsHtmlGraphs += '</table></div>';
 		}
-		presetsHtml += '<div class="presetHolder">'+presetsHtmlGraphs+'</div></div>';
+		presetsHtml += '<div class="presetHolder">'+presetsHtmlGraphs+'</div><div id="preset_'+i+'" class="deletePresetButton" onclick="deletePreset(this)">Delete</div></div>';
 	}
 	for(key in settings) {
 		settingsHtml += '<div class="preference">' +
-													'<div class="preferenceName">'+key+'</div>' +
+													'<div class="preferenceName">'+settingNames[key]+':</div>' +
 													'<input class="preferenceInput" type="number" value="'+settings[key]+'">' +
 													'<div id="'+key+'" class="preferenceButton" onclick="preferenceChange(this)">Change</div>' +
 											'</div>';
