@@ -7,6 +7,95 @@ function configurePress(element) {
 	openMenuSection($("#menuSection_"+mainSectionId).find(".menuHeader"));
 }
 
+//Exports current graphs to excel
+//Todo: All!
+function excelPress(element) {
+	var id = $(element).attr("id").substring(12);
+	var activeGraphId = null;
+	var excelGraph = [];
+
+	for (var i = 0; i < activeGraphs.length; i++) {
+		if(activeGraphs[i].id == id) {
+			activeGraphId = i;
+			break;
+		}
+	}
+
+	for (variable of activeGraphs[activeGraphId].canvas.config.data.datasets) {
+		if(variable.label) {
+			var excelObject = {
+					name: "",
+					data: []
+			};
+			excelObject.name = variable.label;
+			for (variable2 of variable.data) {
+				if(variable2.t.getTime() != activeGraphs[activeGraphId].canvas.config.data.datasets[0].data[0].t.getTime() && variable2.t.getTime() != activeGraphs[activeGraphId].canvas.config.data.datasets[0].data[1].t.getTime()) {
+					var excelDataObject = {
+						x: variable2.t.getTime(),
+						y: variable2.y
+					}
+					excelObject.data.push(excelDataObject);
+				}
+			}
+			excelGraph.push(excelObject);
+		}
+	}
+
+	var unsortedData = {};
+	for (var i = 0; i < excelGraph.length; i++) {
+		for (var j = 0; j < excelGraph[i].data.length; j++) {
+			if(excelGraph[i].data[j].x in unsortedData) {
+				unsortedData[excelGraph[i].data[j].x][i] = excelGraph[i].data[j].y;
+			} else {
+				var tempArray = new Array(excelGraph.length);
+				tempArray[i] = excelGraph[i].data[j].y;
+				unsortedData[excelGraph[i].data[j].x] = tempArray;
+			}
+		}
+	}
+
+	var sortedData = {};
+	Object.keys(unsortedData).sort().forEach(function(key) {
+		sortedData[key] = unsortedData[key];
+	});
+
+	//Excel
+	var excel = $JExcel.new("Calibri light 11 #000000");
+	excel.set({sheet:0,value: "Sheet 1"});
+	var evenRow=excel.addStyle( { border: "none,none,none,thin #333333"});
+	var oddRow=excel.addStyle ( { fill: "#ECECEC" ,border: "none,none,none,thin #333333"});
+	for (var i=1;i<sortedData.length;i++) {
+		excel.set({row:i,style: i%2==0 ? evenRow: oddRow });
+	}
+
+	var formatHeader=excel.addStyle ( {
+		border: "none,none,none,thin #333333",font: "Calibri 12 #0000AA B"}
+	);
+
+	excel.set(0,0,0,"Date",formatHeader);
+	for (var i=0;i<excelGraph.length;i++){              	// Loop headers
+	 	excel.set(0,i+1,0,excelGraph[i].name,formatHeader);   // Set CELL header text & header format
+	}
+
+	var i = 0;
+	for (var variable in sortedData) {
+		if (sortedData.hasOwnProperty(variable)) {
+			console.log(toMysqlFormat(new Date(Number(variable))).toString());
+			// excel.set(0,0,i+1,toMysqlFormat(new Date(Number(variable))).toString());
+			excel.set(0,0,i+1,variable);
+			for (var j = 0; j < sortedData[variable].length; j++) {
+				console.log(sortedData[variable][j]);
+				if(sortedData[variable][j] != undefined) {
+					excel.set(0,1+j,i+1,sortedData[variable][j]);
+				}
+			}
+		}
+		i++;
+	}
+
+	excel.generate("Graph.xlsx");
+}
+
 //Add a measurement to the graph
 //Done!
 function addGraph(element) {

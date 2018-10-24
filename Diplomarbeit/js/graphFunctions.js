@@ -23,7 +23,7 @@ function createGraph(count) {
 													'<div id="configureButton_'+count+'" class="graphButton" onclick="configurePress(this)">'+
 														'<img src="../resources/img/configure.png">'+
 													'</div>'+
-													'<div class="graphButton">'+
+													'<div id="excelButton_'+count+'" class="graphButton" onclick="excelPress(this)">'+
 														'<img src="../resources/img/export.png">'+
 													'</div>'+
 												'</div>'+
@@ -103,8 +103,6 @@ function createGraph(count) {
 
 	var ctx = document.getElementById("dateGraph_"+count).getContext("2d");
 	activeGraphs[activeGraphsId].canvas = new Chart(ctx, JSON.parse(JSON.stringify(graphConfigTemplate)));
-
-	console.log(activeGraphs);
 }
 
 
@@ -221,7 +219,6 @@ function updateGraph(element) {
 	pushBaseLine(activeGraphId);
 
 	for(var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
-		console.log("debug");
 		pushGraphData(activeGraphId, i)
 	}
 }
