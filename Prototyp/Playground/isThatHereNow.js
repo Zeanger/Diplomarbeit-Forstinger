@@ -1,1 +1,0 @@
-let thisIsNew = 0;
