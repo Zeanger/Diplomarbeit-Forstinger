@@ -47,9 +47,9 @@ function createPresetOfCurrent() {
 			success:function(success){
 				console.log(success);
 				if(success == "success") {
-					console.log("Preset was created!");
+					swal("Preset was created!", "Preset name: "+name+"", "success");
 				} else {
-					console.log("Error while creating!");
+					swal("Error while creating the preset!", {icon: "error"});
 				}
 
 				loadPresets(function(json_presets){
@@ -78,7 +78,7 @@ function createPresetOfCurrent() {
 
 					var options = "";
 					for(var i = 0; i < Presets.length; i++) {
-						options += '<option value="'+Presets[i].name+'">'+presets[i].name+'</optioin>';
+						options += '<option value="'+Presets[i].name+'">'+Presets[i].name+'</optioin>';
 					}
 
 					$("#presetSelection").append(options);

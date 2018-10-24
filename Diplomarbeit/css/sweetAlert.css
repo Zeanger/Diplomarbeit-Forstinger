@@ -1,0 +1,16 @@
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 4px;
+  background-color: rgb(255, 235, 112);
+  color: rgb(51, 51, 51);
+  font-size: 12px;
+  border: 2px solid rgb(51, 51, 51);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.swal-button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1vh 0.3vh rgb(75, 75, 75);
+}
