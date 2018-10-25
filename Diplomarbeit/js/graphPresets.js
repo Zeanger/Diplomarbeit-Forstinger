@@ -3,16 +3,29 @@
 //Todo: if name is empty -> error, if name is already saved -> error
 function createPresetOfCurrent() {
 	var name = $("#presetName").val();
+	console.log(name);
 	var preset = [];
 	var isPresetAllowed = true;
 
 	if(!name) {
 		console.log("Preset not Allowed: Missing Name");
+		swal("Preset is missing a name!", {icon: "error"});
 		isPresetAllowed = false;
+		return false;
+	}
+	for (variable of presets) {
+		if(name == variable.name) {
+			console.log("Preset not Allowed: Name allready exists!");
+			swal("Preset name allready exists!", {icon: "error"});
+			isPresetAllowed = false;
+			return false;
+		}
 	}
 	if(activeGraphs.length < 1) {
 		console.log("Preset not Allowed: No Graph");
+		swal("To create a preset atleast 1 graph needs to exist!", {icon: "error"});
 		isPresetAllowed = false;
+		return false;
 	}
 
 	for(var i = 0; i < activeGraphs.length; i++) {
@@ -25,16 +38,22 @@ function createPresetOfCurrent() {
 
 		if(activeGraphs[i].graphs.length < 1) {
 			console.log("Preset not Allowed: No Station");
+			swal("To create a preset atleast 1 measurement needs to exist on each graph!", {icon: "error"});
 			isPresetAllowed = false;
+			return false;
 		}
 
 		if(!activeGraphs[i].time.end && !activeGraphs[i].keepUpdated) {
 			console.log("Preset not Allowed: End or Till-Now missing");
+			swal("To create a preset a valid time window needs to exist on each graph! Try adding 'End' or 'Till now'", {icon: "error"});
 			isPresetAllowed = false;
+			return false;
 		}
 		if(!activeGraphs[i].time.start && !activeGraphs[i].time.span) {
 			console.log("Preset not Allowed: Start or Span missing");
+			swal("To create a preset a valid time window needs to exist on each graph! Try adding 'Start' or 'Span'", {icon: "error"});
 			isPresetAllowed = false;
+			return false;
 		}
 	}
 	var preset_json = JSON.stringify(preset);
