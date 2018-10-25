@@ -73,7 +73,7 @@ function createPresetOfCurrent() {
 
 				loadPresets(function(json_presets){
 					//Delete current presets
-					Presets = [];
+					presets = [];
 					$("#presetSelection").find("Option").remove();
 
 					var json_presets_decoded = JSON.parse(json_presets);
@@ -91,13 +91,13 @@ function createPresetOfCurrent() {
 						if(preset_object.data[0].time.end) {
 							preset_object.data[0].time.end = new Date(preset_object.data[0].time.end);
 						}
-
-						Presets.push(preset_object);
+						console.log(preset_object);
+						presets.push(preset_object);
 					}
 
 					var options = "";
-					for(var i = 0; i < Presets.length; i++) {
-						options += '<option value="'+Presets[i].name+'">'+Presets[i].name+'</optioin>';
+					for(var i = 0; i < presets.length; i++) {
+						options += '<option value="'+presets[i].name+'">'+presets[i].name+'</optioin>';
 					}
 
 					$("#presetSelection").append(options);
@@ -115,7 +115,9 @@ function usePreset(element) {
 	var index = null;
 
 	//Get index
+	console.log("presetName: "+presetName);
 	for(var i = 0; i < presets.length; i++) {
+		console.log(presets[i].name);
 		if(presets[i].name == presetName) {
 			index = i;
 			break;
@@ -136,6 +138,8 @@ function usePreset(element) {
 	//create new sections + main
 	//create activeGraphs from presets
 	//update Graph with section->button->element (find with count id)
+	console.log(presets);
+	console.log(index);
 	for(var i = 0; i < presets[index].data.length; i++) {
 		//Create Sections, watch out for createPresetOfCurrent
 		createGraph(i);
