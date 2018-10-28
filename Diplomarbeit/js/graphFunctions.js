@@ -107,7 +107,6 @@ function createGraph(count) {
 
 
 //Updates all Visuals
-//some!
 function updateAllVisuals() {
 	console.log("Updated all visuals!");
 	for(var i = 0; i < menuOptions.length; i++) {
