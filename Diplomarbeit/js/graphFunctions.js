@@ -201,8 +201,8 @@ function updateGraph(element) {
 	}
 
 	activeGraphs[activeGraphId].canvas.data.datasets = [];
-	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.min = 0;
-	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.max = 0;
+	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.min = 200;
+	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.max = -200;
 	//activeGraphs[activeGraphId].canvas.update();
 
 	if(activeGraphs[activeGraphId].graphs.length == 0) {
@@ -308,8 +308,14 @@ function pushGraphData(id, index) {
 		}
 
 		var chartYDelta = (Math.max.apply(Math, chartDataY)-Math.min.apply(Math, chartDataY));
-		var chartYMin = Math.floor(Math.min.apply(Math, chartDataY)-chartYDelta*0.1);
-		var chartYMax = Math.ceil(Math.max.apply(Math, chartDataY)+chartYDelta*0.1);
+		//var chartYMin = Math.floor(Math.min.apply(Math, chartDataY)-chartYDelta*0.1);
+		//var chartYMax = Math.ceil(Math.max.apply(Math, chartDataY)+chartYDelta*0.1);
+    var chartYMin = Math.min.apply(Math, chartDataY)-chartYDelta*0.1;
+		var chartYMax = Math.max.apply(Math, chartDataY)+chartYDelta*0.1;
+		if((chartYMax-chartYMin) < 5) {
+			chartYMin = (chartYMin+(chartYMax-chartYMin)/2)-5/2;
+			chartYMax = (chartYMin+(chartYMax-chartYMin)/2)+5/2;
+		}
 
 		if(chartYMin < activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min) {
 			activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min = chartYMin;
@@ -376,6 +382,8 @@ function updateTillNow() {
 	for(var j = 0; j < activeGraphs.length; j++) {
 		if(activeGraphs[j].keepUpdated) {
 			activeGraphs[j].canvas.data.datasets = [];
+			activeGraphs[j].canvas.options.scales.yAxes[0].ticks.min = 200;
+			activeGraphs[j].canvas.options.scales.yAxes[0].ticks.max = -200;
 			//activeGraphs[j].canvas.update();
 			pushBaseLine(j);
 			for(var i = 0; i < activeGraphs[j].graphs.length; i++) {

@@ -4,7 +4,7 @@
 	$password = "";
 	$dbname = "measurements";
 
-	$tablename = "current_0";
+	$tablename = "temperature_2";
 	$datemin = "2018-11-0";
 	$datemax = "2018-12-30";
 	$valuemin = -5;

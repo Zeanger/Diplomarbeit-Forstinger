@@ -1,4 +1,5 @@
 var presets = [];
+var recoverPresets = [];
 var settings = {};
 
 $(function() {

@@ -105,6 +105,11 @@ const graphConfigTemplate = {
 					labelString: ""
 				}
 			}]
+		},
+		elements: {
+			point: {
+				radius: 0
+			}
 		}
 	}
 };
