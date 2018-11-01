@@ -84,6 +84,32 @@
   box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
 }
 
+.recoverPresetButton {
+  display: none;
+  margin-right: 2%;
+  margin: 2%;
+
+
+  width: 5%;
+
+  border: 0.2vh solid rgb(51, 51, 51);
+  border-radius: 0.5vh;
+  background: linear-gradient(to bottom, rgb(71, 239, 71), rgb(50, 168, 50));
+
+  font-size: 1.3vh;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(25, 25, 25);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.recoverPresetButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
+}
+
 .graphSection {
     margin-left: 2%;
     margin-top: 1%;

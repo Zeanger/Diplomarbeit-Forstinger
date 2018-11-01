@@ -66,12 +66,12 @@ function createSettings() {
 			presetsHtmlGraphs += '<tr><td>Span:</td><td>'+(presets[i].data[j].time.span ? presets[i].data[j].time.span : 0)+' Minutes</td></tr>';
 			presetsHtmlGraphs += '</table></div>';
 		}
-		presetsHtml += '<div class="presetHolder">'+presetsHtmlGraphs+'</div><div id="preset_'+i+'" class="deletePresetButton" onclick="deletePreset(this)">Delete</div></div>';
+		presetsHtml += '<div class="presetHolder">'+presetsHtmlGraphs+'</div><div id="preset_'+i+'" class="deletePresetButton" onclick="deletePreset(this)">Delete</div><div id="recover_'+i+'" class="recoverPresetButton" onclick="recoverPreset(this)">Recover</div></div>';
 	}
 	for(key in settings) {
 		settingsHtml += '<div class="preference">' +
 													'<div class="preferenceName">'+settingNames[key]+':</div>' +
-													'<input class="preferenceInput" type="number" value="'+settings[key]+'">' +
+													'<input id="'+key+"Input"+'" class="preferenceInput" type="number" value="'+settings[key]+'">' +
 													'<div id="'+key+'" class="preferenceButton" onclick="preferenceChange(this)">Change</div>' +
 											'</div>';
 	}
