@@ -57,12 +57,14 @@ function recoverPreset(element) {
   var name = recoverPresets[id].name;
   var tempPreset = [];
 
-	var graph = {};
-	graph.graphs = recoverPresets[id].data[0].graphs;
-	graph.time = recoverPresets[id].data[0].time;
-	graph.interpolation = recoverPresets[id].data[0].interpolation;
-	graph.keepUpdated = recoverPresets[id].data[0].keepUpdated;
-	preset.push(graph);
+  for (var i = 0; i < recoverPresets[id].data.length; i++) {
+    var graph = {};
+    graph.graphs = recoverPresets[id].data[i].graphs;
+    graph.time = recoverPresets[id].data[i].time;
+    graph.interpolation = recoverPresets[id].data[i].interpolation;
+    graph.keepUpdated = recoverPresets[id].data[i].keepUpdated;
+    tempPreset.push(graph);
+  }
 
   var preset_json = JSON.stringify(tempPreset);
 
@@ -73,7 +75,7 @@ function recoverPreset(element) {
     success:function(success){
       console.log(success);
       if(success == "success") {
-        recoverPresets[id] = presets[id];
+        recoverPresets.splice(id,1);
         $("#preset_"+id).css("display", "inline-block");
         $("#recover_"+id).css("display", "none");
         swal("Preset was recovered!", "Preset name: "+name+"", "success");
