@@ -408,9 +408,9 @@ function updateTillNow() {
 			var chartYSet = {};
 			chartYSet.top = false;
 			chartYSet.bottom = false;
-			
+
 			for(var i = 0; i < activeGraphs[j].graphs.length; i++) {
-				pushGraphData(activeGraphs[j].id, i)
+				pushGraphData(activeGraphs[j].id, i, chartYSet)
 			}
 		}
 	}

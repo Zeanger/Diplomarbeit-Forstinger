@@ -7,7 +7,7 @@ function preferenceChange(element) {
   $.ajax({
     url:"../php/uploadSettings.php",
     type:"POST",
-    data: {name: name, value: value},
+    data: {name: name, value: (value*60*1000)},
     success:function(success){
       console.log(success);
       if(success == "success") {

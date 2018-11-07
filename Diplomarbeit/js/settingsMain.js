@@ -43,7 +43,7 @@ const stationNames = {
 };
 
 const settingNames = {
-	"refreshRate": "Refresh Rate",
+	"refreshRate": "Refresh Rate (Minutes)",
 }
 
 function createSettings() {
@@ -71,7 +71,7 @@ function createSettings() {
 	for(key in settings) {
 		settingsHtml += '<div class="preference">' +
 													'<div class="preferenceName">'+settingNames[key]+':</div>' +
-													'<input id="'+key+"Input"+'" class="preferenceInput" type="number" value="'+settings[key]+'">' +
+													'<input id="'+key+"Input"+'" class="preferenceInput" type="number" value="'+(settings[key]/(1000*60))+'">' +
 													'<div id="'+key+'" class="preferenceButton" onclick="preferenceChange(this)">Change</div>' +
 											'</div>';
 	}
