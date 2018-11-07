@@ -1,3 +1,5 @@
+
+
 //Creates a new menuSection with its corresponding mainSection
 //Done! unless new contend is added
 function createGraph(count) {
@@ -201,8 +203,8 @@ function updateGraph(element) {
 	}
 
 	activeGraphs[activeGraphId].canvas.data.datasets = [];
-	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.min = 200;
-	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.max = -200;
+	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.min = -20;
+	activeGraphs[activeGraphId].canvas.options.scales.yAxes[0].ticks.max = 20;
 	//activeGraphs[activeGraphId].canvas.update();
 
 	if(activeGraphs[activeGraphId].graphs.length == 0) {
@@ -217,15 +219,19 @@ function updateGraph(element) {
 
 	pushBaseLine(activeGraphId);
 
+	var chartYSet = {};
+	chartYSet.top = false;
+	chartYSet.bottom = false;
+
 	for(var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
-		pushGraphData(activeGraphId, i)
+		pushGraphData(activeGraphId, i, chartYSet)
 	}
 }
 
 
 //Applies and Update all changes in activeGraphs
 //Some new shit with span!
-function pushGraphData(id, index) {
+function pushGraphData(id, index, chartYSet) {
 	var newDataset = {};
 	newDataset.lineTension = 0;
 	newDataset.data = [];
@@ -317,11 +323,23 @@ function pushGraphData(id, index) {
 			chartYMax = (chartYMin+(chartYMax-chartYMin)/2)+5/2;
 		}
 
-		if(chartYMin < activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min) {
-			activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min = chartYMin;
+
+		console.log(chartYMin, chartYMax);
+		if (chartYMax) {
+			console.log("Yes");
+		} else {
+			console.log("No");
 		}
-		if(chartYMax > activeGraphs[id].canvas.options.scales.yAxes[0].ticks.max) {
+
+		if((chartYMin < activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min && chartYMin) || (chartYMin && !chartYSet.bottom)) {
+			activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min = chartYMin;
+			//set flag
+			chartYSet.bottom = true;
+		}
+		if((chartYMax > activeGraphs[id].canvas.options.scales.yAxes[0].ticks.max && chartYMax) || (chartYMax && !chartYSet.top)) {
 			activeGraphs[id].canvas.options.scales.yAxes[0].ticks.max = chartYMax;
+			//set flag
+			chartYSet.top = true;
 		}
 
 		activeGraphs[id].canvas.options.legend.display = true;
@@ -382,10 +400,15 @@ function updateTillNow() {
 	for(var j = 0; j < activeGraphs.length; j++) {
 		if(activeGraphs[j].keepUpdated) {
 			activeGraphs[j].canvas.data.datasets = [];
-			activeGraphs[j].canvas.options.scales.yAxes[0].ticks.min = 200;
-			activeGraphs[j].canvas.options.scales.yAxes[0].ticks.max = -200;
+			activeGraphs[j].canvas.options.scales.yAxes[0].ticks.min = -20;
+			activeGraphs[j].canvas.options.scales.yAxes[0].ticks.max = 20;
 			//activeGraphs[j].canvas.update();
 			pushBaseLine(j);
+
+			var chartYSet = {};
+			chartYSet.top = false;
+			chartYSet.bottom = false;
+			
 			for(var i = 0; i < activeGraphs[j].graphs.length; i++) {
 				pushGraphData(activeGraphs[j].id, i)
 			}

@@ -5,15 +5,15 @@
 	$dbname = "measurements";
 
 	$tablename = "temperature_2";
-	$datemin = "2018-11-0";
-	$datemax = "2018-12-30";
+	$datemin = "2019-1-0";
+	$datemax = "2019-1-30";
 	$valuemin = -5;
 	$valuemax = 20;
 
 	$faktormin = -0.2;
 	$faktormax = 0.2;
 
-	$entries = 200;
+	$entries = 400;
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password, $dbname);

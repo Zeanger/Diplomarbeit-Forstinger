@@ -82,7 +82,7 @@ function excelPress(element) {
 		if (sortedData.hasOwnProperty(variable)) {
 			console.log(toMysqlFormat(new Date(Number(variable))).toString());
 			// excel.set(0,0,i+1,toMysqlFormat(new Date(Number(variable))).toString());
-			excel.set(0,0,i+1,variable);
+			excel.set(0,0,i+1,$JExcel.toExcelLocalTime(new Date(Number(variable))),excel.addStyle({format: "dd.mm.yyyy hh:mm:ss"}));
 			for (var j = 0; j < sortedData[variable].length; j++) {
 				console.log(sortedData[variable][j]);
 				if(sortedData[variable][j] != undefined) {
