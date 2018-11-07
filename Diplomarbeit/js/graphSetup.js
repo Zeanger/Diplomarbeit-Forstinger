@@ -1,47 +1,48 @@
 //Global
-const stationNames = {
-	"temperature_0": {
-		getDataName: "TEMPERATURE_0",
-		displayName: "Temperature-Warehouse",
-		measurementType: "temperature"
-	},
-	"temperature_1": {
-		getDataName: "TEMPERATURE_1",
-		displayName: "Temperature-Shop",
-		measurementType: "temperature"
-	},
-	"temperature_2": {
-		getDataName: "TEMPERATURE_2",
-		displayName: "Temperature-Draußen",
-		measurementType: "temperature"
-	},
-	"water_0": {
-		getDataName: "WATER_0",
-		displayName: "Water usage 0",
-		measurementType: "water"
-	},
-	"water_1": {
-		getDataName: "WATER_1",
-		displayName: "Water usage 1",
-		measurementType: "water"
-	},
-	"water_2": {
-		getDataName: "WATER_2",
-		displayName: "Water usage 2",
-		measurementType: "water"
-	},
-	"water_3": {
-		getDataName: "WATER_3",
-		displayName: "Water usage 3",
-		measurementType: "water"
-	}
-	,
-	"current_0": {
-		getDataName: "CURRENT_0",
-		displayName: "Current ussage 0",
-		measurementType: "current"
-	}
-};
+// const stationNames = {
+// 	"temperature_0": {
+// 		getDataName: "TEMPERATURE_0",
+// 		displayName: "Temperature-Warehouse",
+// 		measurementType: "temperature"
+// 	},
+// 	"temperature_1": {
+// 		getDataName: "TEMPERATURE_1",
+// 		displayName: "Temperature-Shop",
+// 		measurementType: "temperature"
+// 	},
+// 	"temperature_2": {
+// 		getDataName: "TEMPERATURE_2",
+// 		displayName: "Temperature-Draußen",
+// 		measurementType: "temperature"
+// 	},
+// 	"water_0": {
+// 		getDataName: "WATER_0",
+// 		displayName: "Water usage 0",
+// 		measurementType: "water"
+// 	},
+// 	"water_1": {
+// 		getDataName: "WATER_1",
+// 		displayName: "Water usage 1",
+// 		measurementType: "water"
+// 	},
+// 	"water_2": {
+// 		getDataName: "WATER_2",
+// 		displayName: "Water usage 2",
+// 		measurementType: "water"
+// 	},
+// 	"water_3": {
+// 		getDataName: "WATER_3",
+// 		displayName: "Water usage 3",
+// 		measurementType: "water"
+// 	}
+// 	,
+// 	"current_0": {
+// 		getDataName: "CURRENT_0",
+// 		displayName: "Current ussage 0",
+// 		measurementType: "current"
+// 	}
+// };
+var stationNames = {};
 const datasetsColour = {
 	borderColor: ["#0000ff", "#00ff00", "#ff0000", "#800000", "#008000", "#000080", "#ff00bb"],
 	backgroundColor: ["#0000ff45", "#00ff0045", "#ff000045", "#80000045", "#00800045", "#00008045", "#ff00bb45"]
@@ -116,9 +117,11 @@ const graphConfigTemplate = {
 
 $(function() {
 	loadSettings();
-  createGlobal();
-  closeMenuSectionGlobal();
-  closeAllMenuSections();
+	loadStations(function(){
+		createGlobal();
+		closeMenuSectionGlobal();
+		closeAllMenuSections();
+	});
 });
 
 //Creates the global menu
@@ -214,6 +217,29 @@ function loadSettings() {
 			}
 			settings.refreshRate = refreshRate;
 			console.log(settings);
+		},
+	});
+}
+
+//Loads all sations from the database
+//Todo: all
+function loadStations(callback) {
+	$.ajax({
+		url:"../php/loadStations.php",
+		success:function(msg){
+			var json_stations_decoded = JSON.parse(msg);
+			console.log(json_stations_decoded);
+			for (var variable in json_stations_decoded) {
+				console.log(json_stations_decoded[variable].displayName);
+				if (json_stations_decoded.hasOwnProperty(variable)) {
+					var tempObject = {};
+					tempObject.displayName = json_stations_decoded[variable].displayName;
+					tempObject.measurementType = json_stations_decoded[variable].measurementType;
+					stationNames[json_stations_decoded[variable].databaseName] = tempObject;
+				}
+			}
+			console.log(stationNames);
+			callback();
 		},
 	});
 }

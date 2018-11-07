@@ -243,7 +243,8 @@ function pushGraphData(id, index, chartYSet) {
 	newDataset.borderColor = datasetsColour.borderColor[index];
 	newDataset.backgroundColor = datasetsColour.backgroundColor[index];
 
-	var getDataName = stationNames[activeGraphs[id].graphs[index]].getDataName;
+	// var getDataName = stationNames[activeGraphs[id].graphs[index]].getDataName;
+	var getDataName = activeGraphs[id].graphs[index];
 	var measurementType = stationNames[activeGraphs[id].graphs[index]].measurementType;
 
 	var startDateDisplay = new Date(activeGraphs[id].time.start);

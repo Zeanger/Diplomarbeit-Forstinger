@@ -1,16 +1,16 @@
 function getData(measurement, mode, callback, start, end) {
 	//All tables
-	switch(measurement) {
-		case "TEMPERATURE_0": break;
-		case "TEMPERATURE_1": break;
-		case "TEMPERATURE_2": break;
-		case "WATER_0": break;
-		case "WATER_1": break;
-		case "WATER_2": break;
-		case "WATER_3": break;
-		case "CURRENT_0": break;
-		default: console.log("Invalid measurement!"); return false;
-	}
+	// switch(measurement) {
+	// 	case "TEMPERATURE_0": break;
+	// 	case "TEMPERATURE_1": break;
+	// 	case "TEMPERATURE_2": break;
+	// 	case "WATER_0": break;
+	// 	case "WATER_1": break;
+	// 	case "WATER_2": break;
+	// 	case "WATER_3": break;
+	// 	case "CURRENT_0": break;
+	// 	default: console.log("Invalid measurement!"); return false;
+	// }
 	//All modes
 	switch(mode) {
 		case "DATA_PER_ID": break;

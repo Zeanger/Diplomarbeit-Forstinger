@@ -14,24 +14,25 @@
 	$sql = null;
 	$dataArray = array();
 
-	switch ($_POST['measurement']) {
-    case "TEMPERATURE_0": $tableName = "temperature_0";
-        break;
-    case "TEMPERATURE_1": $tableName = "temperature_1";
-        break;
-		case "TEMPERATURE_2": $tableName = "temperature_2";
-        break;
-		case "WATER_0": $tableName = "water_0";
-        break;
-		case "WATER_1": $tableName = "water_1";
-        break;
-		case "WATER_2": $tableName = "water_2";
-        break;
-		case "WATER_3": $tableName = "water_3";
-        break;
-		case "CURRENT_0": $tableName = "current_0";
-        break;
-	}
+	// switch ($_POST['measurement']) {
+  //   case "TEMPERATURE_0": $tableName = "temperature_0";
+  //       break;
+  //   case "TEMPERATURE_1": $tableName = "temperature_1";
+  //       break;
+	// 	case "TEMPERATURE_2": $tableName = "temperature_2";
+  //       break;
+	// 	case "WATER_0": $tableName = "water_0";
+  //       break;
+	// 	case "WATER_1": $tableName = "water_1";
+  //       break;
+	// 	case "WATER_2": $tableName = "water_2";
+  //       break;
+	// 	case "WATER_3": $tableName = "water_3";
+  //       break;
+	// 	case "CURRENT_0": $tableName = "current_0";
+  //       break;
+	// }
+	$tableName = $_POST['measurement'];
 
 	if(isset($tableName)) {
 		if($_POST['mode'] === "DATA_PER_ID") {
