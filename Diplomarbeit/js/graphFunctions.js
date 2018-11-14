@@ -223,15 +223,21 @@ function updateGraph(element) {
 	chartYSet.top = false;
 	chartYSet.bottom = false;
 
+	// var updateCount = 0;
+	var updateCount = [];
+	for (var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
+		updateCount[i] = false;
+	}
+
 	for(var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
-		pushGraphData(activeGraphId, i, chartYSet)
+		pushGraphData(activeGraphId, i, chartYSet, updateCount)
 	}
 }
 
 
 //Applies and Update all changes in activeGraphs
 //Some new shit with span!
-function pushGraphData(id, index, chartYSet) {
+function pushGraphData(id, index, chartYSet, updateCount) {
 	var newDataset = {};
 	newDataset.lineTension = 0;
 	newDataset.data = [];
@@ -348,7 +354,13 @@ function pushGraphData(id, index, chartYSet) {
 		activeGraphs[id].canvas.options.scales.yAxes[0].scaleLabel.labelString = measurementType;
 
 		activeGraphs[id].canvas.data.datasets.push(newDataset);
-		activeGraphs[id].canvas.update();
+
+		// updateCount++;
+		updateCount[index] = true;
+		console.log(updateCount, index);
+		if(!updateCount.includes(false)) {
+			activeGraphs[id].canvas.update();
+		}
 	}, startDateData, endDateData);
 }
 
@@ -409,6 +421,11 @@ function updateTillNow() {
 			var chartYSet = {};
 			chartYSet.top = false;
 			chartYSet.bottom = false;
+
+			var updateCount = [];
+			for (var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
+				updateCount[i] = false;
+			}
 
 			for(var i = 0; i < activeGraphs[j].graphs.length; i++) {
 				pushGraphData(activeGraphs[j].id, i, chartYSet)
