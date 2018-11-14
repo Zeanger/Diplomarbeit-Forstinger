@@ -423,12 +423,12 @@ function updateTillNow() {
 			chartYSet.bottom = false;
 
 			var updateCount = [];
-			for (var i = 0; i < activeGraphs[activeGraphId].graphs.length; i++) {
+			for (var i = 0; i < activeGraphs[j].graphs.length; i++) {
 				updateCount[i] = false;
 			}
 
 			for(var i = 0; i < activeGraphs[j].graphs.length; i++) {
-				pushGraphData(activeGraphs[j].id, i, chartYSet)
+				pushGraphData(activeGraphs[j].id, i, chartYSet, updateCount)
 			}
 		}
 	}
