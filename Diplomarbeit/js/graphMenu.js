@@ -76,7 +76,7 @@ function toggleMenuSectionGlobal() {
   if(($(element).parent(".menuSectionGlobal").attr("value") == "open")) {
     $(element).parent(".menuSectionGlobal").attr("value", "closed");
 
-    $(element).parent(".menuSectionGlobal").css("height", "5.9vh");
+    $(element).parent(".menuSectionGlobal").css("height", "5.8vh");
     $(element).siblings(".menuContentGlobal").css("display", "none");
     $(element).css("border-bottom", "none");
     $(element).css("border-bottom-left-radius", "1.5vh");
@@ -100,7 +100,7 @@ function closeMenuSectionGlobal() {
 
   $(element).parent(".menuSectionGlobal").attr("value", "closed");
 
-  $(element).parent(".menuSectionGlobal").css("height", "5.9vh");
+  $(element).parent(".menuSectionGlobal").css("height", "5.8vh");
   $(element).siblings(".menuContentGlobal").css("display", "none");
   $(element).css("border-bottom", "none");
   $(element).css("border-bottom-left-radius", "1.5vh");
