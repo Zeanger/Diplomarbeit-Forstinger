@@ -1,0 +1,27 @@
+\BOOKMARK [0][]{chapter.1}{Aufgabenstellung}{}% 1
+\BOOKMARK [1][]{section.1.1}{Realisierung}{chapter.1}% 2
+\BOOKMARK [0][]{chapter.2}{ESP-Modul}{}% 3
+\BOOKMARK [1][]{section.2.1}{\334bersicht}{chapter.2}% 4
+\BOOKMARK [1][]{section.2.2}{Technische Daten}{chapter.2}% 5
+\BOOKMARK [1][]{section.2.3}{\(Verbindung mit\) Temperatursensor}{chapter.2}% 6
+\BOOKMARK [0][]{chapter.3}{Konfigurationen}{}% 7
+\BOOKMARK [1][]{section.3.1}{ESP8266 als Client}{chapter.3}% 8
+\BOOKMARK [1][]{section.3.2}{Virtual Machine als Broker}{chapter.3}% 9
+\BOOKMARK [2][]{subsection.3.2.1}{MQTT}{section.3.2}% 10
+\BOOKMARK [1][]{section.3.3}{Verbindungsaufbau}{chapter.3}% 11
+\BOOKMARK [0][]{chapter.4}{Erweiterungen}{}% 12
+\BOOKMARK [1][]{section.4.1}{Warn-LEDs}{chapter.4}% 13
+\BOOKMARK [1][]{section.4.2}{L\374fter}{chapter.4}% 14
+\BOOKMARK [1][]{section.4.3}{Display}{chapter.4}% 15
+\BOOKMARK [1][]{section.4.4}{Sleep Mode}{chapter.4}% 16
+\BOOKMARK [1][]{section.4.5}{Aufbau auf Lochrasterplatte}{chapter.4}% 17
+\BOOKMARK [0][]{chapter.5}{Raspberry Pi}{}% 18
+\BOOKMARK [1][]{section.5.1}{\334bersicht}{chapter.5}% 19
+\BOOKMARK [1][]{section.5.2}{Technische Daten}{chapter.5}% 20
+\BOOKMARK [0][]{chapter.6}{Pi als Broker}{}% 21
+\BOOKMARK [1][]{section.6.1}{MQTT}{chapter.6}% 22
+\BOOKMARK [1][]{section.6.2}{Daten empfangen}{chapter.6}% 23
+\BOOKMARK [0][]{chapter.7}{WebOberfl\344che}{}% 24
+\BOOKMARK [1][]{section.7.1}{Daten in Diagramm ausgeben}{chapter.7}% 25
+\BOOKMARK [0][]{chapter.8}{ESP2 Daten empfangen}{}% 26
+\BOOKMARK [1][]{section.8.1}{Ausgabe auf Display}{chapter.8}% 27
