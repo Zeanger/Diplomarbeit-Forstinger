@@ -216,7 +216,7 @@ function loadSettings() {
 				if(json_settings_decoded[i].Setting = "refreshRate") refreshRate = json_settings_decoded[i].Value;
 			}
 			settings.refreshRate = refreshRate;
-			console.log(settings);
+			console.table(settings);
 		},
 	});
 }
@@ -228,9 +228,9 @@ function loadStations(callback) {
 		url:"../php/loadStations.php",
 		success:function(msg){
 			var json_stations_decoded = JSON.parse(msg);
-			console.log(json_stations_decoded);
+			//console.log(json_stations_decoded);
 			for (var variable in json_stations_decoded) {
-				console.log(json_stations_decoded[variable].displayName);
+				//console.log(json_stations_decoded[variable].displayName);
 				if (json_stations_decoded.hasOwnProperty(variable)) {
 					var tempObject = {};
 					tempObject.displayName = json_stations_decoded[variable].displayName;
@@ -238,7 +238,7 @@ function loadStations(callback) {
 					stationNames[json_stations_decoded[variable].databaseName] = tempObject;
 				}
 			}
-			console.log(stationNames);
+			console.table(stationNames);
 			callback();
 		},
 	});

@@ -331,12 +331,12 @@ function pushGraphData(id, index, chartYSet, updateCount) {
 		}
 
 
-		console.log(chartYMin, chartYMax);
-		if (chartYMax) {
-			console.log("Yes");
-		} else {
-			console.log("No");
-		}
+		// console.log(chartYMin, chartYMax);
+		// if (chartYMax) {
+		// 	console.log("Yes");
+		// } else {
+		// 	console.log("No");
+		// }
 
 		if((chartYMin < activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min && chartYMin) || (chartYMin && !chartYSet.bottom)) {
 			activeGraphs[id].canvas.options.scales.yAxes[0].ticks.min = chartYMin;
@@ -357,7 +357,7 @@ function pushGraphData(id, index, chartYSet, updateCount) {
 
 		// updateCount++;
 		updateCount[index] = true;
-		console.log(updateCount, index);
+		//console.log(updateCount, index);
 		if(!updateCount.includes(false)) {
 			activeGraphs[id].canvas.update();
 		}

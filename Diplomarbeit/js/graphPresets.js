@@ -117,7 +117,7 @@ function usePreset(element) {
 	//Get index
 	console.log("presetName: "+presetName);
 	for(var i = 0; i < presets.length; i++) {
-		console.log(presets[i].name);
+		//console.log(presets[i].name);
 		if(presets[i].name == presetName) {
 			index = i;
 			break;
@@ -138,8 +138,8 @@ function usePreset(element) {
 	//create new sections + main
 	//create activeGraphs from presets
 	//update Graph with section->button->element (find with count id)
-	console.log(presets);
-	console.log(index);
+	//console.log(presets);
+	//console.log(index);
 	for(var i = 0; i < presets[index].data.length; i++) {
 		//Create Sections, watch out for createPresetOfCurrent
 		createGraph(i);

@@ -52,3 +52,10 @@ function customLog(name) {
 
 	return null;
 }
+
+//Changes the location
+//Done!
+function changePage(element) {
+  var href = $(element).children().attr("href");
+  location.replace(href);
+}

@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Dashboard</title>
+    <title>Guide</title>
 
     <link rel="shortcut icon" type="image/x-icon" href="../resources/img/favicon.png">
 
     <!-- JQuery -->
     <script src="../resources/js/jquery.js"></script>
+    <script src="../js/utilities.js" charset="utf-8"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="../css/general.css">
@@ -19,9 +20,9 @@
   <body>
 
     <div class="nav">
-      <div><a href="dashboard.html">Guide</a></div>
-      <div><a href="graphs.html">Graphs</a></div>
-      <div><a href="settings.html">Settings</a></div>
+      <div onclick="changePage(this)"><a href="dashboard.html">Guide</a></div>
+      <div onclick="changePage(this)"><a href="graphs.html">Graphs</a></div>
+      <div onclick="changePage(this)"><a href="settings.html">Settings</a></div>
     </div>
     <div class="logo">
       <img src="../resources/img/FORSTINGER_LOGO.png" alt="Forstinger">

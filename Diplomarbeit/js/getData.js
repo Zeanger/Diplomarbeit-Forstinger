@@ -31,7 +31,7 @@ function getData(measurement, mode, callback, start, end) {
 			data: { measurement: measurement, mode: mode, StartID: Math.ceil(start).toString(), EndID: Math.ceil(end).toString()},
 			success:function(msg){
 				dataArray = JSON.parse(msg);
-				console.log(dataArray); //Dev
+				console.table(dataArray); //Dev
 				if(typeof callback == "function") {
 					callback(dataArray);
 				}
@@ -46,7 +46,7 @@ function getData(measurement, mode, callback, start, end) {
 			data: { measurement: measurement, mode: mode, StartID: Math.ceil(Number(start)).toString(), EndID: Math.ceil(Number(end)).toString()},
 			success:function(msg){
 				dataArray = JSON.parse(msg);
-				console.log(dataArray); //Dev
+				console.table(dataArray); //Dev
 				if(typeof callback == "function") {
 					callback(dataArray);
 				}
@@ -68,7 +68,7 @@ function getData(measurement, mode, callback, start, end) {
 			data: { measurement: measurement, mode: mode, StartDate: toMysqlFormat(start), EndDate: toMysqlFormat(end)},
 			success:function(msg){
 				dataArray = JSON.parse(msg);
-				console.log(dataArray); //Dev
+				console.table(dataArray); //Dev
 				if(typeof callback == "function") {
 					callback(dataArray);
 				}
@@ -87,7 +87,7 @@ function getData(measurement, mode, callback, start, end) {
 			data: {measurement: measurement, mode: mode},
 			success:function(msg){
 				dataArray = JSON.parse(msg);
-				console.log(dataArray); //Dev
+				console.table(dataArray); //Dev
 				if(typeof callback == "function") {
 					callback(dataArray);
 				}
@@ -106,7 +106,7 @@ function getData(measurement, mode, callback, start, end) {
 			data: {measurement: measurement, mode: mode},
 			success:function(msg){
 				dataArray = JSON.parse(msg);
-				console.log(dataArray); //Dev
+				console.table(dataArray); //Dev
 				if(typeof callback == "function") {
 					callback(dataArray);
 				}
