@@ -130,7 +130,7 @@ function createGlobal() {
 	var menuGlobal = 	'<div id="menuGlobal" class="menuSectionGlobal" value="open">'+
 											'<div class="menuHeader" onclick="toggleMenuSectionGlobal(this)">Global</div>'+
 											'<div class="menuContentGlobal">'+
-												'<div>Preset</div>'+
+												'<div>Voreingestellte Diagramme</div>'+
 												'<div class="menuDropdown">'+
 													'<input id="presetName" type="text" placeholder="Preset name">'+
 													'<div class="addButton" onclick="createPresetOfCurrent()">Save</div>'+
@@ -139,22 +139,22 @@ function createGlobal() {
 													'<select id="presetSelection"></select>'+
 													'<div class="addButton" onclick="usePreset(this)">Load</div>'+
 												'</div>'+
-												'<div>Global Settings</div>'+
+												'<div>Global Eigenschaften</div>'+
 												'<div class="menuDropdown">'+
 													'<div class="datePicker"><input id="startDateGlobal" type="datetime-local" onchange="startDateChangedGlobal(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
 													'<div class="datePickerText">Start</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
 													'<div class="datePicker"><input id="endDateGlobal" type="datetime-local" onchange="endDateChangedGlobal(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
-													'<div class="datePickerText">End</div>'+
+													'<div class="datePickerText">Ende</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
 													'<div class="datePicker"><input id="spanGlobal" type="number" onchange="spanChangedGlobal(this)" placeholder="Minutes"></div>'+
-													'<div class="datePickerText">Span</div>'+
+													'<div class="datePickerText">Spanne</div>'+
 												'</div>'+
-												'<div class="menuCheckbox"><input id="keepUpdatedGlobal" type="checkbox" onclick="keepUpdatedChangedGlobal(this)">Till now</div>'+
-												'<div class="menuCheckbox"><input id="interpolationGlobal" type="checkbox" checked onclick="interpolationChangedGlobal(this)">Interpolate</div>'+
-												'<div class="applySettings" onclick="updateAllGraphs()">Apply Settings</div>'+
+												'<div class="menuCheckbox"><input id="keepUpdatedGlobal" type="checkbox" onclick="keepUpdatedChangedGlobal(this)">Live</div>'+
+												'<div class="menuCheckbox"><input id="interpolationGlobal" type="checkbox" checked onclick="interpolationChangedGlobal(this)">Interpolation</div>'+
+												'<div class="applySettings" onclick="updateAllGraphs()">Einstellungen übernehmen</div>'+
 											'</div>'+
 										'</div>';
 

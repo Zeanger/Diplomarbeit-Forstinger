@@ -16,7 +16,7 @@ function createGraph(count) {
 											options1 +
 									'</select>';
 	var mainSection = '<div id="mainSection_'+count+'" class="mainSection">'+
-											'<div class="mainHeader">Graph '+(count+1)+'</div>'+
+											'<div class="mainHeader">Diagramm '+(count+1)+'</div>'+
 											'<div class="mainContent">'+
 												'<div class="graph">'+
 													'<canvas id="dateGraph_'+count+'"></canvas>'+
@@ -48,16 +48,16 @@ function createGraph(count) {
 												'</div>'+
 												'<div class="menuDropdown">'+
 													'<div class="datePicker"><input id="endDate_'+count+'" type="datetime-local" onchange="endDateChanged(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
-													'<div class="datePickerText">End</div>'+
+													'<div class="datePickerText">Ende</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
 													'<div class="datePicker"><input id="span_'+count+'" type="number" onchange="spanChanged(this)" placeholder="Minutes"></div>'+
-													'<div class="datePickerText">Span (Min)</div>'+
+													'<div class="datePickerText">Spanne</div>'+
 												'</div>'+
-												'<div class="menuCheckbox"><input id="keepUpdated_'+count+'" type="checkbox" onclick="keepUpdatedChanged(this)">Till now</div>'+
-												'<div class="menuCheckbox"><input id="interpolation_'+count+'" type="checkbox" checked onclick="interpolationChanged(this)">Interpolate</div>'+
-												'<div id="updateGraph_'+count+'" class="applySettings" onclick="updateGraph(this)">Apply Settings</div>'+
-												'<div id="deleteMenuSection_'+count+'" class="menuDelete" onclick="deleteMenuSection(this)">Delete Graph</div>'+
+												'<div class="menuCheckbox"><input id="keepUpdated_'+count+'" type="checkbox" onclick="keepUpdatedChanged(this)">Live</div>'+
+												'<div class="menuCheckbox"><input id="interpolation_'+count+'" type="checkbox" checked onclick="interpolationChanged(this)">Interpolation</div>'+
+												'<div id="updateGraph_'+count+'" class="applySettings" onclick="updateGraph(this)">Einstellungegn übernehmen</div>'+
+												'<div id="deleteMenuSection_'+count+'" class="menuDelete" onclick="deleteMenuSection(this)">Diagramm löschen</div>'+
 											'</div>'+
 										'</div>';
 

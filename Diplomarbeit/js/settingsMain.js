@@ -43,7 +43,7 @@ const stationNames = {
 };
 
 const settingNames = {
-	"refreshRate": "Refresh Rate (Minutes)",
+	"refreshRate": "Aktualisierungsrate (Minuten)",
 }
 
 function createSettings() {
@@ -59,11 +59,11 @@ function createSettings() {
 				presetsHtmlGraphs += '<div class="measurement">'+stationNames[presets[i].data[j].graphs[k]].displayName+'</div>';
 			}
 			presetsHtmlGraphs += '</div><table class="presetTable">';
-			presetsHtmlGraphs += '<tr><td>Interpolation:</td><td>'+(presets[i].data[j].interpolation ? "Yes" : "No")+'</td></tr>';
-			presetsHtmlGraphs += '<tr><td>Till now:</td><td>'+(presets[i].data[j].keepUpdated ? "Yes" : "No")+'</td></tr>';
-			presetsHtmlGraphs += '<tr><td>Start:</td><td>'+(presets[i].data[j].time.start ? toDatepickerFormat(presets[i].data[j].time.start) : "No")+'</td></tr>';
-			presetsHtmlGraphs += '<tr><td>End:</td><td>'+(presets[i].data[j].time.end ? toDatepickerFormat(presets[i].data[j].time.end) : "No")+'</td></tr>';
-			presetsHtmlGraphs += '<tr><td>Span:</td><td>'+(presets[i].data[j].time.span ? presets[i].data[j].time.span : 0)+' Minutes</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Interpolation:</td><td>'+(presets[i].data[j].interpolation ? "Ja" : "Nein")+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Live:</td><td>'+(presets[i].data[j].keepUpdated ? "Ja" : "Nein")+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Start:</td><td>'+(presets[i].data[j].time.start ? toMysqlFormat(presets[i].data[j].time.start) : "No")+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Ende:</td><td>'+(presets[i].data[j].time.end ? toMysqlFormat(presets[i].data[j].time.end) : "No")+'</td></tr>';
+			presetsHtmlGraphs += '<tr><td>Spanne:</td><td>'+(presets[i].data[j].time.span ? presets[i].data[j].time.span : 0)+' Minuten</td></tr>';
 			presetsHtmlGraphs += '</table></div>';
 		}
 		presetsHtml += '<div class="presetHolder">'+presetsHtmlGraphs+'</div><div id="preset_'+i+'" class="deletePresetButton" onclick="deletePreset(this)">Delete</div><div id="recover_'+i+'" class="recoverPresetButton" onclick="recoverPreset(this)">Recover</div></div>';
@@ -72,16 +72,16 @@ function createSettings() {
 		settingsHtml += '<div class="preference">' +
 													'<div class="preferenceName">'+settingNames[key]+':</div>' +
 													'<input id="'+key+"Input"+'" class="preferenceInput" type="number" value="'+(settings[key]/(1000*60))+'">' +
-													'<div id="'+key+'" class="preferenceButton" onclick="preferenceChange(this)">Change</div>' +
+													'<div id="'+key+'" class="preferenceButton" onclick="preferenceChange(this)">Ändern</div>' +
 											'</div>';
 	}
 
 	var mainSettings = '<div class="settings">' +
-												'<div class="preferenceHeader">Preferences</div>' +
+												'<div class="preferenceHeader">Präferenzen</div>' +
                         settingsHtml +
 										 '</div>' +
                      '<div class="presets">' +
-										 		'<div class="presetHeader">Presets</div>' +
+										 		'<div class="presetHeader">Voreingestellte Diagramme</div>' +
                         presetsHtml +
                      '</div>';
 

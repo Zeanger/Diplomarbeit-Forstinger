@@ -11,13 +11,18 @@ $(function() {
 			preset_object.name = json_presets_decoded[i].Name;
 			preset_object.data = JSON.parse(json_presets_decoded[i].Data);
 
-			if(preset_object.data[0].time.start) {
-				preset_object.data[0].time.start = preset_object.data[0].time.start ? new Date(preset_object.data[0].time.start) : null;
-			}
-			if(preset_object.data[0].time.end) {
-				preset_object.data[0].time.end = preset_object.data[0].time.end ? new Date(preset_object.data[0].time.end) : null;
-			}
-
+      for(var i2 = 0; i2 < preset_object.data.length; i2++) {
+        if(preset_object.data[i2].time.start) {
+          var tempStartDate = new Date(preset_object.data[i2].time.start);
+          tempStartDate.setMinutes(tempStartDate.getMinutes()+tempStartDate.getTimezoneOffset());
+          preset_object.data[i2].time.start = tempStartDate;
+        }
+        if(preset_object.data[i2].time.end) {
+          var tempEndDate = new Date(preset_object.data[i2].time.end);
+          tempEndDate.setMinutes(tempEndDate.getMinutes()+tempEndDate.getTimezoneOffset());
+          preset_object.data[i2].time.end =  tempEndDate;
+        }
+      }
 			presets.push(preset_object);
 		}
     console.log(presets);
