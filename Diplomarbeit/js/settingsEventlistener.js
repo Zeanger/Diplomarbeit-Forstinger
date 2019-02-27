@@ -1,8 +1,12 @@
 function preferenceChange(element) {
-  console.log("change!");
   var name = $(element).attr("id");
   var value = $("#"+name+"Input").val();
-  console.log(value);
+
+  //Min Value
+  if(value < 1) {
+    value = 1;
+    $("#"+name+"Input").val(value);
+  }
 
   $.ajax({
     url:"../php/uploadSettings.php",

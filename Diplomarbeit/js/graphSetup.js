@@ -141,11 +141,11 @@ function createGlobal() {
 												'</div>'+
 												'<div>Global Settings</div>'+
 												'<div class="menuDropdown">'+
-													'<div class="datePicker"><input id="startDateGlobal" type="date" onchange="startDateChangedGlobal(this)"></div>'+
+													'<div class="datePicker"><input id="startDateGlobal" type="datetime-local" onchange="startDateChangedGlobal(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
 													'<div class="datePickerText">Start</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
-													'<div class="datePicker"><input id="endDateGlobal" type="date" onchange="endDateChangedGlobal(this)"></div>'+
+													'<div class="datePicker"><input id="endDateGlobal" type="datetime-local" onchange="endDateChangedGlobal(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
 													'<div class="datePickerText">End</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+

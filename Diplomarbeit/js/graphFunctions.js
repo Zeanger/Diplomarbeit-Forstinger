@@ -43,11 +43,11 @@ function createGraph(count) {
 													'<div id="removeButton_'+count+'" class="removeButton" onclick="removeGraph(this)">-</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
-													'<div class="datePicker"><input id="startDate_'+count+'" type="date" onchange="startDateChanged(this)"></div>'+
+													'<div class="datePicker"><input id="startDate_'+count+'" type="datetime-local" onchange="startDateChanged(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
 													'<div class="datePickerText">Start</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
-													'<div class="datePicker"><input id="endDate_'+count+'" type="date" onchange="endDateChanged(this)"></div>'+
+													'<div class="datePicker"><input id="endDate_'+count+'" type="datetime-local" onchange="endDateChanged(this)" value="'+new Date().getFullYear()+'-01-01T00:00"></div>'+
 													'<div class="datePickerText">End</div>'+
 												'</div>'+
 												'<div class="menuDropdown">'+
@@ -64,6 +64,11 @@ function createGraph(count) {
 	$(".main").append(mainSection);
 	if($(".menuSection").length > 0) 	$(".menu").find(".menuSection").last().after(menuSection);
 	else $(".menu").find(".menuSectionGlobal").last().after(menuSection);
+
+	//Default Value for Datetime-local
+	$("#startDate_"+count).val("2005-02-01T00:00");
+	$("#startDate_0").val('2005-02-01T00:00');
+	$("#endDate_"+count).val("2005-02-01T00:00");
 
 	$("#removeGraphSelection_"+count).val(null);
 
@@ -115,8 +120,8 @@ function updateAllVisuals() {
 		$("#keepUpdated_"+menuOptions[i].id).prop("checked",menuOptions[i].keepUpdated);
 		$("#interpolation_"+menuOptions[i].id).prop("checked",menuOptions[i].interpolation);
 		$("#span_"+menuOptions[i].id).val(menuOptions[i].time.span);
-		if(menuOptions[i].time.start) $("#startDate_"+menuOptions[i].id).val(toDatepickerFormat(menuOptions[i].time.start));
-		if(menuOptions[i].time.end) $("#endDate_"+menuOptions[i].id).val(toDatepickerFormat(menuOptions[i].time.end));
+		if(menuOptions[i].time.start) $("#startDate_"+menuOptions[i].id).val(toDatetimeLocal(menuOptions[i].time.start));
+		if(menuOptions[i].time.end) $("#endDate_"+menuOptions[i].id).val(toDatetimeLocal(menuOptions[i].time.end));
 
 		$("#addGraphSelection_"+menuOptions[i].id).val(null);
 		$("#removeGraphSelection_"+menuOptions[i].id).val(null);
@@ -255,8 +260,10 @@ function pushGraphData(id, index, chartYSet, updateCount) {
 
 	var startDateDisplay = new Date(activeGraphs[id].time.start);
 	var endDateDisplay = new Date(activeGraphs[id].time.end);
-	startDateDisplay.setMinutes(startDateDisplay.getMinutes()+new Date().getTimezoneOffset());
-	endDateDisplay.setMinutes(endDateDisplay.getMinutes()+new Date().getTimezoneOffset());
+	// startDateDisplay.setMinutes(startDateDisplay.getMinutes()+new Date().getTimezoneOffset());
+	// endDateDisplay.setMinutes(endDateDisplay.getMinutes()+new Date().getTimezoneOffset());
+	console.log(startDateDisplay);
+	console.log(endDateDisplay);
 	var startDateData = new Date(startDateDisplay);
 	var endDateData = new Date(endDateDisplay);
 	startDateData.setDate(startDateDisplay.getDate()-1);
@@ -377,8 +384,8 @@ function pushBaseLine(id) {
 
 	var startDateDisplay = new Date(activeGraphs[id].time.start);
 	var endDateDisplay = new Date(activeGraphs[id].time.end);
-	startDateDisplay.setMinutes(startDateDisplay.getMinutes()+new Date().getTimezoneOffset());
-	endDateDisplay.setMinutes(endDateDisplay.getMinutes()+new Date().getTimezoneOffset());
+	// startDateDisplay.setMinutes(startDateDisplay.getMinutes()+new Date().getTimezoneOffset());
+	// endDateDisplay.setMinutes(endDateDisplay.getMinutes()+new Date().getTimezoneOffset());
 
 	if(activeGraphs[id].time.span > 0) {
 		var date = new Date();

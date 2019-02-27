@@ -40,22 +40,21 @@ function toExcelFormat(date2) {
 
 }
 
-//Logs variables for debugging
-//Done!
-function customLog(name) {
-	if(name == "activeGraphs") console.log(activeGraphs);
-	if(name == "freeId") console.log(freeId);
-	if(name == "presets") console.log(presets);
-	if(name == "keepUpdatedInterval") console.log(keepUpdatedInterval);
-	if(name == "stationNames") console.log(stationNames);
-  if(name == "menuOptions") console.log(menuOptions);
-
-	return null;
-}
-
 //Changes the location
 //Done!
 function changePage(element) {
   var href = $(element).children().attr("href");
   location.replace(href);
+}
+
+//Date to Datetime-local string
+//Done!
+function toDatetimeLocal(date2) {
+  var date = new Date(date2),
+    YYYY = date.getFullYear(),
+    MM = twoDigits(date.getMonth()+1),
+    DD = twoDigits(date.getDate()),
+    HH = twoDigits(date.getHours()),
+    II = twoDigits(date.getMonth());
+  return YYYY+'-'+MM+'-'+DD+'T'+HH+':'+II;
 }

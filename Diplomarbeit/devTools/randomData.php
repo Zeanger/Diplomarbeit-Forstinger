@@ -5,8 +5,8 @@
 	$dbname = "measurements";
 
 	$tablename = "current_0";
-	$datemin = "2018-1-1";
-	$datemax = "2018-1-31";
+	$datemin = "2018-2-1";
+	$datemax = "2018-2-28";
 	$valuemin = -5;
 	$valuemax = 20;
 
