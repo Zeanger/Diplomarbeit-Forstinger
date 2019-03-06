@@ -1,10 +1,17 @@
 <?php
   include "connect.php";
 
-  $sql = "DELETE FROM `stations` WHERE `Id` =".$_POST["Id"];
+  $sql = "SELECT `databaseName` FROM `stations` WHERE `Id` =".$_POST["Id"];
+  $sql2 = "DELETE FROM `stations` WHERE `Id` =".$_POST["Id"];
 
-  if($conn->query($sql)) {
-    echo "success";
+  $tablename;
+  if($tablename = $conn->query($sql)) {
+    if($conn->query($sql2)) {
+      echo "success";
+      $conn->query("DROP TABLE ".$tablename->fetch_assoc()["databaseName"]);
+    } else {
+      echo "failed! sql: ".$sql2;
+    }
   } else {
     echo "failed! sql: ".$sql;
   }
