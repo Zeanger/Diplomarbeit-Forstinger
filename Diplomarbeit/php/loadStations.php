@@ -1,17 +1,7 @@
 <?php
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "measurements";
+  include "connect.php";
 
-  // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
-  // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-  }
-
-  $sql = "SELECT `databaseName`, `displayName`, `measurementType` FROM `stations`";
+  $sql = "SELECT * FROM `stations`";
 
   $result = $conn->query($sql);
   $dataArray = array();
@@ -19,8 +9,6 @@
   while($row = mysqli_fetch_assoc($result)) {
     array_push($dataArray, $row);
   }
-
-  // echo json_encode($dataArray);
 
   echo json_encode($dataArray);
 

@@ -227,6 +227,7 @@ function loadStations(callback) {
 	$.ajax({
 		url:"../php/loadStations.php",
 		success:function(msg){
+			console.log(msg);
 			var json_stations_decoded = JSON.parse(msg);
 			//console.log(json_stations_decoded);
 			for (var variable in json_stations_decoded) {
@@ -235,6 +236,8 @@ function loadStations(callback) {
 					var tempObject = {};
 					tempObject.displayName = json_stations_decoded[variable].displayName;
 					tempObject.measurementType = json_stations_decoded[variable].measurementType;
+					tempObject.databasename = json_stations_decoded[variable].databaseName;
+					tempObject.mqttTopic = json_stations_decoded[variable].mqttTopic;
 					stationNames[json_stations_decoded[variable].databaseName] = tempObject;
 				}
 			}

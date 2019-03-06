@@ -1,0 +1,132 @@
+/* Main */
+/* START */
+.main {
+  position: fixed;
+  overflow: auto;
+  left: 0;
+  top: 8.2%;
+
+  width: 100%;
+  height: 91.8%;
+
+  background-color: rgb(85, 85, 85);
+}
+
+.stationBlock {
+  display: block;
+  margin: 2%;
+  padding: 2%;
+  padding-bottom: 1%;
+
+  font-size: 1.5vh;
+
+  border-radius: 2vh;
+  border-collapse: collapse;
+
+  background: rgb(255,255,255);
+
+  -moz-box-shadow:    inset 0 0 15px #000000;
+  -webkit-box-shadow: inset 0 0 15px #000000;
+  box-shadow:         inset 0 0 15px #000000;
+}
+
+.blockTitel {
+  font-weight: bold;
+  font-size: 2vh;
+  padding-left: 0.5vh;
+  margin-bottom: 1vh;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 2px 20px;
+}
+
+tr {
+  border: solid gray 2px;
+}
+
+td>div{
+  display: inline-block;
+}
+
+
+.deleteStationButton {
+  display: block;
+  margin-right: 2%;
+  margin: 2%;
+
+
+  width: 100%;
+
+  border: 0.2vh solid rgb(51, 51, 51);
+  border-radius: 0.5vh;
+  background: linear-gradient(to bottom, rgb(239, 71, 71), rgb(168, 50, 50));
+
+  font-size: 1.3vh;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(25, 25, 25);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.deleteStationButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
+}
+
+.recoverStationButton {
+  display: none;
+  margin-right: 2%;
+  margin: 2%;
+
+
+  width: 100%;
+
+  border: 0.2vh solid rgb(51, 51, 51);
+  border-radius: 0.5vh;
+  background: linear-gradient(to bottom, rgb(71, 239, 71), rgb(50, 168, 50));
+
+  font-size: 1.3vh;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(25, 25, 25);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.recoverStationButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
+}
+
+.addButton {
+  display: inline-block;
+  cursor: pointer;
+  margin-right: 2%;
+  margin-top: 1vh;
+  width: 10vh;
+
+  border: 0.2vh solid rgb(51, 51, 51);
+  border-radius: 0.5vh;
+  background: linear-gradient(to bottom, rgb(255, 235, 112), rgb(255, 222, 16));
+
+  font-size: 1.3vh;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(51, 51, 51);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.addButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
+}

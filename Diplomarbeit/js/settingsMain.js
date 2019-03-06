@@ -1,46 +1,46 @@
-const stationNames = {
-	"temperature_0": {
-		getDataName: "TEMPERATURE_0",
-		displayName: "Temperature-Warehouse",
-		measurementType: "temperature"
-	},
-	"temperature_1": {
-		getDataName: "TEMPERATURE_1",
-		displayName: "Temperature-Shop",
-		measurementType: "temperature"
-	},
-	"temperature_2": {
-		getDataName: "TEMPERATURE_2",
-		displayName: "Temperature-Draußen",
-		measurementType: "temperature"
-	},
-	"water_0": {
-		getDataName: "WATER_0",
-		displayName: "Water usage 0",
-		measurementType: "water"
-	},
-	"water_1": {
-		getDataName: "WATER_1",
-		displayName: "Water usage 1",
-		measurementType: "water"
-	},
-	"water_2": {
-		getDataName: "WATER_2",
-		displayName: "Water usage 2",
-		measurementType: "water"
-	},
-	"water_3": {
-		getDataName: "WATER_3",
-		displayName: "Water usage 3",
-		measurementType: "water"
-	}
-	,
-	"current_0": {
-		getDataName: "CURRENT_0",
-		displayName: "Current ussage 0",
-		measurementType: "current"
-	}
-};
+// const stationNames = {
+// 	"temperature_0": {
+// 		getDataName: "TEMPERATURE_0",
+// 		displayName: "Temperature-Warehouse",
+// 		measurementType: "temperature"
+// 	},
+// 	"temperature_1": {
+// 		getDataName: "TEMPERATURE_1",
+// 		displayName: "Temperature-Shop",
+// 		measurementType: "temperature"
+// 	},
+// 	"temperature_2": {
+// 		getDataName: "TEMPERATURE_2",
+// 		displayName: "Temperature-Draußen",
+// 		measurementType: "temperature"
+// 	},
+// 	"water_0": {
+// 		getDataName: "WATER_0",
+// 		displayName: "Water usage 0",
+// 		measurementType: "water"
+// 	},
+// 	"water_1": {
+// 		getDataName: "WATER_1",
+// 		displayName: "Water usage 1",
+// 		measurementType: "water"
+// 	},
+// 	"water_2": {
+// 		getDataName: "WATER_2",
+// 		displayName: "Water usage 2",
+// 		measurementType: "water"
+// 	},
+// 	"water_3": {
+// 		getDataName: "WATER_3",
+// 		displayName: "Water usage 3",
+// 		measurementType: "water"
+// 	}
+// 	,
+// 	"current_0": {
+// 		getDataName: "CURRENT_0",
+// 		displayName: "Current ussage 0",
+// 		measurementType: "current"
+// 	}
+// };
 
 const settingNames = {
 	"refreshRate": "Aktualisierungsrate (Minuten)",

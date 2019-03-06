@@ -1,15 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "measurements";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
+include "connect.php";
 
 $sql = "INSERT INTO `presets`(`ID`, `Name`, `Data`) VALUES (null,'".$_POST['name']."','".$_POST['preset']."')";
 

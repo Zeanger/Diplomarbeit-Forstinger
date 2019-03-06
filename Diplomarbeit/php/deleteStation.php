@@ -1,7 +1,7 @@
 <?php
   include "connect.php";
-  
-  $sql = "UPDATE `preferences` SET `Value`= ".$_POST['value']." WHERE `Setting` = '".$_POST['name']."'";
+
+  $sql = "DELETE FROM `stations` WHERE `Id` =".$_POST["Id"];
 
   if($conn->query($sql)) {
     echo "success";
@@ -10,4 +10,4 @@
   }
 
   $conn->close();
- ?>
+?>
