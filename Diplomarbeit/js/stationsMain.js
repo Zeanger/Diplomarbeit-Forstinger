@@ -50,7 +50,7 @@ function createStationsSection() {
 												 '</td>'+
 										 '</tr>';
   }
-  stationsHtml += '</table></div><div id="updateStations" class="updateStationButton" onclick="updateStations()">Update</div></div>';
+  stationsHtml += '</table></div><div id="updateStations" class="updateStationButton" onclick="updateStations()">Update</div><div id="rebootServer" class="rebootButton" onclick="rebootServer()">Reboot Server</div></div>';
   $(".main").append(stationsHtml);
 }
 
@@ -76,7 +76,7 @@ function deleteStation(element) {
 
   swal({
     title: "Are you sure?",
-    text: "Until you leave the page its still recoverable!",
+    text: "While the station can still be recoverd, the data will be lost forever!",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -209,4 +209,23 @@ function updateStations() {
 				}
 			}
 	});
+}
+
+//reboots the Server
+//todo: all
+function rebootServer() {
+	swal({
+    title: "Are you sure?",
+    text: "This will reboot the server, it will be unavaiable for a bit!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url:"../php/restartListener.php",
+        type:"POST",
+      });
+    }
+  });
 }
