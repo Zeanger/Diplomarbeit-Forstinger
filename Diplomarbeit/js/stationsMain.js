@@ -38,11 +38,19 @@ function loadStations(callback) {
 //Creats station table
 //Todo: Done
 function createStationsSection() {
-  var stationsHtml = '<div class="stationBlock"><div class="blockTitel">Stationen</div><div><table><tr><th>ID</th><th>Anzeigename</th><th>Messart</th><th>Datenbankname</th><th>MQTT Topic</th><th></th></tr></div></div>';
+  var stationsHtml = '<div class="stationBlock"><div class="blockTitel">Stationen</div><div><table id="stationTable"><tr><th>ID</th><th>Anzeigename</th><th>Messart</th><th>MQTT Topic</th><th>Datenbankname</th><th></th></tr></div></div>';
   for(variable in stationNames) {
-    stationsHtml +=  '<tr><td>'+stationNames[variable].id+'</td><td>'+stationNames[variable].displayName+'</td><td>'+stationNames[variable].measurementType+'</td><td>'+stationNames[variable].databasename+'</td><td>'+stationNames[variable].mqttTopic+'</td><td><div id="delete_'+stationNames[variable].id+'" class="deleteStationButton" onclick="deleteStation(this)">Delete</div><div id="recover_'+stationNames[variable].id+'" class="recoverStationButton" onclick="recoverStation(this)">Recover</div></td></tr>';
+    stationsHtml +=  '<tr id="row_'+stationNames[variable].id+'" deleted="false"><td>'+stationNames[variable].id+'</td>'+
+												 '<td><input id="displayName_'+stationNames[variable].id+'" value="'+stationNames[variable].displayName+'"></td>'+
+												 '<td><input id="measurementType_'+stationNames[variable].id+'" value="'+stationNames[variable].measurementType+'"></td>'+
+												 '<td><input id="mqttTopic_'+stationNames[variable].id+'" value="'+stationNames[variable].mqttTopic+'"></td>'+
+												 '<td>'+stationNames[variable].databasename+'</td>'+
+												 '<td><div id="delete_'+stationNames[variable].id+'" class="deleteStationButton" onclick="deleteStation(this)">Delete</div>'+
+												     '<div id="recover_'+stationNames[variable].id+'" class="recoverStationButton" onclick="recoverStation(this)">Recover</div>'+
+												 '</td>'+
+										 '</tr>';
   }
-  stationsHtml += '</table>';
+  stationsHtml += '</table></div><div id="updateStations" class="updateStationButton" onclick="updateStations()">Update</div></div>';
   $(".main").append(stationsHtml);
 }
 
@@ -84,6 +92,7 @@ function deleteStation(element) {
             recoverStations[id] = stationNames[id];
             $("#delete_"+id).css("display", "none");
             $("#recover_"+id).css("display", "inline-block");
+						$("#row_"+id).attr("deleted",true);
             swal("Station was deleted!", "Preset name: "+stationNames[id].displayName+"", "success");
           } else {
             swal("Error while deleting the station!", {icon: "error"});
@@ -109,6 +118,7 @@ function recoverStation(element) {
       if(success == "success") {
         $("#delete_"+id).css("display", "inline-block");
         $("#recover_"+id).css("display", "none");
+				$("#row_"+id).attr("deleted",false);
         swal("Station was recovered!", "Station name: "+recoverStations[id].displayName+"", "success");
 				recoverStations.splice(id,1);
       } else {
@@ -119,7 +129,7 @@ function recoverStation(element) {
 }
 
 //Adds a station
-//Todo: All
+//Todo: Done
 function addStation() {
 	var addDisplayName = $("#addDisplayName").val();
 	var addMeasurementType = $("#addMeasurementType").val();
@@ -134,9 +144,22 @@ function addStation() {
 	    url:"../php/addStation.php",
 	    type:"POST",
 	    data: {displayName: addDisplayName, databaseName: addDatabaseName, mqttTopic: addMqttTopic, measurementType: addMeasurementType},
-	    success:function(success){
-	      console.log(success);
-	      if(success == "success") {
+	    success:function(json){
+				console.log(json);
+				var data = JSON.parse(json);
+	      console.log(data.success);
+	      if(data.success == "success") {
+					var newStationsHtml =  '<tr id="row_'+data.id+'" deleted="false"><td>'+data.id+'</td>'+
+															 '<td><input id="displayName_'+data.id+'" value="'+addDisplayName+'"></td>'+
+															 '<td><input id="measurementType_'+data.id+'" value="'+addMeasurementType+'"></td>'+
+															 '<td><input id="mqttTopic_'+data.id+'" value="'+addMqttTopic+'"></td>'+
+															 '<td>'+addDatabaseName+'</td>'+
+															 '<td><div id="delete_'+data.id+'" class="deleteStationButton" onclick="deleteStation(this)">Delete</div>'+
+															     '<div id="recover_'+data.id+'" class="recoverStationButton" onclick="recoverStation(this)">Recover</div>'+
+															 '</td>'+
+													 '</tr>';
+
+					$("#stationTable").find("tbody").append(newStationsHtml);
 	        swal("Station was created!", "Station name: "+addDisplayName+"", "success");
 	      } else {
 	        swal("Error while creating the station!", {icon: "error"});
@@ -144,4 +167,46 @@ function addStation() {
 	    },
 	  });
 	}
+}
+
+//Updates all Stations with the data from the table
+//Todo: All
+function updateStations() {
+	var atleastOneUpdate = false;
+	swal({
+    title: "Are you sure?",
+    text: "This is final!",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+			for (var variable in stationNames) {
+				var id = stationNames[variable].id;
+				if((stationNames[variable].displayName != $("#displayName_"+id).val() ||
+					 stationNames[variable].measurementType != $("#measurementType_"+id).val() ||
+				   stationNames[variable].mqttTopic != $("#mqttTopic_"+id).val()) &&
+				   $("#row_"+id).attr("deleted") == "false") {
+						 console.log("Update Station ID: "+id);
+						 $.ajax({
+				 	    url:"../php/updateStation.php",
+				 	    type:"POST",
+				 	    data: {Id: id, displayName: $("#displayName_"+id).val(), measurementType: $("#measurementType_"+id).val(), mqttTopic: $("#mqttTopic_"+id).val()},
+				 	    success:function(success){
+								if(success == "success") {
+									atleastOneUpdate = true;
+					        swal("Station were updated!", "", "success");
+									console.log(success+" Updated station with ID: "+id);
+					      } else {
+					        swal("Error while updating!", {icon: "error"});
+					      }
+				 	    },
+				 	  });
+					}
+				}
+				if(!atleastOneUpdate) {
+					swal("Nothing to update!", {icon: "error"});
+				}
+			}
+	});
 }

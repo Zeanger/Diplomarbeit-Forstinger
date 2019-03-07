@@ -7,7 +7,11 @@
   if($conn->query($sql)) {
     $idToDelete = $conn->insert_id;
     if($conn->query($sql2)) {
-      echo "success";
+      $data = (object) [
+        'success' => 'success',
+        'id' => $idToDelete,
+  ];
+      echo json_encode($data);
     } else {
       if($conn->query("DELETE FROM `stations` WHERE `Id` =".$idToDelete)) {
         echo "managed to delete faulty entry!";

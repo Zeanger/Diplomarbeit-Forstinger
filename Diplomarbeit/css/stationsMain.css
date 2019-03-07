@@ -80,6 +80,33 @@ td>div{
   box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
 }
 
+.updateStationButton {
+  display: block;
+
+  margin-right: 2%;
+  margin-top: 1vh;
+
+  width: 10vh;
+
+  border: 0.2vh solid rgb(51, 51, 51);
+  border-radius: 0.5vh;
+  background: linear-gradient(to bottom, rgb(255, 235, 112), rgb(255, 222, 16));
+
+
+  font-size: 1.3vh;
+  text-align: center;
+  font-weight: bold;
+  color: rgb(25, 25, 25);
+
+  transition-property: background, box-shadow;
+  transition-duration: 0.3s;
+}
+
+.updateStationButton:hover {
+  cursor: pointer;
+  box-shadow: 0 0 0.5vh 0.1vh rgb(75, 75, 75);
+}
+
 .recoverStationButton {
   display: none;
   margin-right: 2%;
